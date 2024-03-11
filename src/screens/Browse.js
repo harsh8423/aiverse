@@ -5,14 +5,10 @@ import {ContextApi} from "../components.js/ContextApi";
 import DisplayMedia from '../components.js/DisplayMedia';
 import Searchbox from '../components.js/Searchbox';
 import filtericon from "../images/filter.png"
-import ModalInteraction from "./ModalInteraction"
 import Modal from 'react-modal';
 import trash from "../images/trash.png"
 import cancelIcon from "../images/cancel.png"
 
-
-
-import DisplayVideo from '../components.js/DisplayVideo';
 
 // Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -83,46 +79,49 @@ export default function Browse(props,{changeBackgroundColor}) {
   const a = useContext(ContextApi);
   const [interactions, setinteractions] = useState(a.interactions)
   
-  const [selectedpattern, setselectedpattern] = useState('')
-  const [selectedindustry, setselectedindustry] = useState('')
-  const [selectedappName, setselectedappName] = useState('')
-  const [BackgroundColor, setBackgroundColor] = useState('')
-
-
+  
+  
   const [pattern, setpattern] = useState(props?.pattern || admin?.pattern)
   const [industry, setindustry] = useState(props?.industry || admin?.industry)
   const [appName, setappName] = useState(props?.appName || admin?.appName)
-
+  
+  const [selectedpattern, setselectedpattern] = useState([])
+  const [selectedindustry, setselectedindustry] = useState([])
+  const [selectedappName, setselectedappName] = useState([])
+  const [BackgroundColor, setBackgroundColor] = useState('')
   useEffect(() => {
-    if(selectedappName || selectedindustry || selectedpattern){
-      
-    console.log(selectedappName)
-    const updatedInteraction = a.interactions.filter((item) => {
-      let a=true // Initialize match as true for each item
-      let b=true // Initialize match as true for each item
-      let c=true // Initialize match as true for each item
-
-      // Check if selectedappName is defined and matches the item's appName
-      if (selectedappName && selectedappName !== item.appName) {
-        a = false;
-      }
+    if (selectedappName.length || selectedindustry.length || selectedpattern.length) {
+      console.log(true)
+      console.log(selectedappName);
   
-      // Check if selectedpattern is defined and matches the item's pattern
-      if (selectedpattern && selectedpattern !== item.pattern) {
-        b = false;
-      }
+      const updatedInteraction = a.interactions.filter((item) => {
+        let a = true;
+        let b = true;
+        let c = true;
   
-      // Check if selectedindustry is defined and matches the item's industry
-      if (selectedindustry && selectedindustry !== item.industry) {
-        c = false;
-      }
-      
-      return (a&&b&&c); // Return true only if all conditions are matched
-    });
+        if (selectedappName.length) {
+          // Check if selectedappName matches the item's appName
+          a = selectedappName.some((x) => x === item.appName);
+        }
   
-    setinteractions(updatedInteraction);
+        if (selectedindustry.length) {
+          // Check if selectedindustry matches the item's industry
+          b = selectedindustry.some((x) => x === item.industry);
+        }
+  
+        if (selectedpattern.length) {
+          // Check if selectedpattern matches the item's pattern
+          c = selectedpattern.some((x) => x === item.pattern);
+        }
+  
+        // Return true only if all conditions are matched
+        return a && b && c;
+      });
+  
+      setinteractions(updatedInteraction);
     }
-  }, [selectedappName,selectedindustry,selectedpattern])
+  }, [selectedappName, selectedindustry, selectedpattern]);
+  
   
   
   function openModal(index) {
@@ -139,6 +138,44 @@ export default function Browse(props,{changeBackgroundColor}) {
     window.history.back();
     setIsOpen(false);
   }
+
+
+
+  // Function to handle checkbox change event
+  const handleappname = (event, item) => {
+    const isChecked = event.target.checked;
+
+    // Update the checkedItems array based on the checkbox state
+    if (isChecked) {
+      setselectedappName([...selectedappName, item]); // Push the item to the checkedItems array
+    } else {
+      setselectedappName(selectedappName.filter(checkedItem => checkedItem !== item)); // Remove the item from the checkedItems array
+    }
+  };
+
+  const handlepattern = (event, item) => {
+    const isChecked = event.target.checked;
+
+    // Update the checkedItems array based on the checkbox state
+    if (isChecked) {
+      setselectedpattern([...selectedpattern, item]); // Push the item to the checkedItems array
+    } else {
+      setselectedpattern(selectedpattern.filter(checkedItem => checkedItem !== item)); // Remove the item from the checkedItems array
+    }
+  };
+
+
+  const handleindustry = (event, item) => {
+    const isChecked = event.target.checked;
+
+    // Update the checkedItems array based on the checkbox state
+    if (isChecked) {
+      setselectedindustry([...selectedindustry, item]); // Push the item to the checkedItems array
+    } else {
+      setselectedindustry(selectedindustry.filter(checkedItem => checkedItem !== item)); // Remove the item from the checkedItems array
+    }
+  };
+
 
   
   useEffect(() => {
@@ -206,7 +243,7 @@ const DisplayVideo=({url}) =>{
   // Function to render media based on URL type
   const renderMedia = () => {
     if (isImageURL(url)) {
-      return <img style={{objectFit:'contain',maxHeight:'700px'}} src={url} width="100%"  alt="Image" />;
+      return <img style={{objectFit:'contain',maxHeight:'700px'}} src={url} width="100%" height='90%' alt="Image" />;
     } else if (isVideoURL(url)) {
       return (
         <video style={{objectFit:'contain',maxHeight:'700px'}} controls autoPlay loop width="100%" height='90%' onContextMenu={handleContextMenu} controlsList='nodownload' muted>
@@ -248,40 +285,62 @@ const findvideo=(item)=>{
          <div style={{margin:'0 10px 0 0'}}><img src={filtericon} width={24} height={28}/></div>
          {appName&& <div className="dropdown" style={{margin:'0 10px 0 0'}}>
             <button style={{minWidth:'100px', border:'1px solid lightgrey', backgroundColor:'white'}} className="btn btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              <strong>App Name </strong>{selectedappName? selectedappName:""}
-            </button>
-            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" style={{maxHeight:'200px', overflow:'auto'}}>
+              <strong>AppName</strong>       
+              {selectedappName?.length > 1 ? (
+                  <small style={{fontWeight:'bold', color:'grey'}}>{"+"}{selectedappName?.length-1}{"more"}</small>
+                ) : (
+                  selectedappName ? selectedappName[0] : ""
+                )}
+              </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" style={{maxHeight:'100px', overflow:'auto'}}>
               <span style={{cursor:'pointer', minWidth:'100px'}} className="dropdown-item" onClick={()=>{setselectedappName("")}}>clear select</span>
               {appName.map((item)=>{
                 return(
-                  <span style={{cursor:'pointer', minWidth:'100px'}} className="dropdown-item" onClick={()=>{setselectedappName(item);}}>{item}</span>
+                  <div className='p-2' style={{display:'inline', justifyContent:'center', alignItems:'center'}}>
+                  <input className='m-1' checked={selectedappName.includes(item)}onChange={(event) => handleappname(event, item)}  type="checkbox" id={item} name={item} value={item}/>
+                  <label htmlFor={item}>{item}</label><br/>
+                  </div>
                 )
               })}
             </div>
           </div>}
           {pattern&& <div className="dropdown" style={{margin:'0 10px 0 0'}}>
             <button style={{minWidth:'100px', border:'1px solid lightgrey', backgroundColor:'white'}} className="btn btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              <strong>Pattern </strong>{selectedpattern? selectedpattern:""}
+              <strong>Pattern </strong>{selectedpattern?.length > 1 ? (
+                <small style={{fontWeight:'bold', color:'grey'}}>{"+"}{selectedpattern?.length-1}{"more"}</small>
+              ) : (
+                selectedpattern? selectedpattern[0]:""
+              )}
             </button>
             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" style={{maxHeight:'200px', overflow:'auto'}}>
             <span style={{cursor:'pointer', minWidth:'100px'}} className="dropdown-item" onClick={()=>{setselectedpattern("")}}>clear select</span>
               {pattern.map((item)=>{
                 return(
-                  <span style={{cursor:'pointer', minWidth:'100px'}} className="dropdown-item" onClick={()=>{setselectedpattern(item)}}>{item}</span>
-                )
+<div className='p-2' style={{display:'inline', justifyContent:'center', alignItems:'center'}}>
+<input className='m-1' checked={selectedpattern.includes(item)}onChange={(event) => handlepattern(event, item)}  type="checkbox" id={item} name={item} value={item}/>
+
+                  <label htmlFor={item}>{item}</label><br/>
+                  </div>                )
               })}
             </div>
           </div>}
           {industry && <div className="dropdown" style={{margin:'0 10px 0 0'}}>
             <button style={{minWidth:'100px', border:'1px solid lightgrey', backgroundColor:'white'}} className="btn btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              <strong>Industry </strong>{selectedindustry? selectedindustry:""}
+              <strong>Industry </strong>{selectedindustry? selectedindustry:""}{selectedindustry?.length > 1 ? (
+                <small style={{fontWeight:'bold', color:'grey'}}>{"+"}{selectedindustry?.length-1}{"more"}</small>
+              ) : (
+                ""
+              )}
             </button>
             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" style={{maxHeight:'200px', overflow:'auto'}}>
             <span style={{cursor:'pointer', minWidth:'100px'}} className="dropdown-item" onClick={()=>{setselectedindustry("")}}>clear select</span>
               {industry.map((item)=>{
                 return(
-                  <span style={{cursor:'pointer', minWidth:'100px'}} className="dropdown-item" onClick={()=>{setselectedindustry(item)}}>{item}</span>
-                )
+<div className='p-2' style={{display:'inline', justifyContent:'center', alignItems:'center'}}>
+<input className='m-1' checked={selectedindustry.includes(item)}onChange={(event) => handleindustry(event, item)}  type="checkbox" id={item} name={item} value={item}/>
+
+                  <label htmlFor={item}>{item}</label><br/>
+                  </div>                )
               })}
             </div>
           </div>}
@@ -335,7 +394,7 @@ const findvideo=(item)=>{
             slidesPerView={1.3}
             spaceBetween={30}
             centeredSlides={true}
-            navigation={true}
+            // navigation={true}
             // pagination={true}
             mousewheel={true}
             // keyboard={true}
@@ -349,7 +408,7 @@ const findvideo=(item)=>{
             </SwiperSlide>
             {video?.images?.map((item)=>{
               return(
-                <SwiperSlide><img  src={`${cdnURL}${item}`} style={{objectFit:'contain',maxHeight:'500px'}} width="100%" height='80%' alt="Image" /></SwiperSlide>
+                <SwiperSlide><img  src={`${cdnURL}${item}`} width="100%" height='80%' alt="Image" /></SwiperSlide>
 
               )
             })}

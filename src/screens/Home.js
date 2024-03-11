@@ -97,6 +97,10 @@ export default function Home() {
       const handleScrollOff = () => {
         setScrollOff(true);
       };
+
+      const [selected, setSelected] = useState([]);
+
+      
   return (
     <>
     <div className='grad'></div>
@@ -175,7 +179,7 @@ export default function Home() {
                     {Admin &&<Browse industry={Admin.industry} pattern={Admin.pattern} appName={Admin.appName} />}
                 </div>
                 <div  style={{display:'flex',justifyContent:'center', alignItems:'center', flexDirection:'column'}}>
-                    <div className='mt-2' onClick={()=>{navigate('../Browse', {state:Admin})}} style={{borderRadius:'12px', boxShadow:'0 1px 20px -6px #a884db)', backgroundColor:'#a884db', color:'white', padding:'6px 28px', fontWeight:700, fontSize:'18px', textDecoration:'none', cursor:'pointer'}}>Browse All {">"}</div>
+                    <div className='mt-2' onClick={()=>{navigate('../Browse', {state:Admin});window.scrollTo(0, 0)}} style={{borderRadius:'12px', boxShadow:'0 1px 20px -6px #a884db)', backgroundColor:'#a884db', color:'white', padding:'6px 28px', fontWeight:700, fontSize:'18px', textDecoration:'none', cursor:'pointer'}}>Browse All {">"}</div>
                     <a className='mt-2' href='https://twitter.com/intent/user?screen_name=aiversedesign' style={{borderRadius:'12px', boxShadow:'0 1px 20px -6px #f6f0ff)', backgroundColor:'#f6f0ff', padding:'6px 28px',position:'relative', marginLeft:'10px'}}>
                         <div style={{color:'#a884db', fontWeight:300, fontSize:'18px',}}>Stay updated @aiversedesign on 𝕏 {">"}</div>
                     </a>
@@ -218,7 +222,7 @@ export default function Home() {
                     </div>
                     <div className='col-12'>
                         <div style={{display:'flex', justifyContent:'center', alignItems:'center', flexWrap:'wrap'}}>
-                            <div className='p-4' style={{cursor:'pointer'}} onClick={()=>{navigate('../SpeakTheLanguage')}}>
+                            <div className='p-4' style={{cursor:'pointer'}} onClick={()=>{navigate('../SpeakTheLanguage');window.scrollTo(0, 0)}}>
                                 <div className='cont' style={{borderRadius:'20px', backgroundColor:'#262626'}}></div>
                                 <div className='mt-3' style={{width:'250px', textAlign:'left', lineHeight:1.3}}>
                                     <span style={{fontSize:'24px',color:'white', fontWeight:500}}><strong>Speak the language</strong></span><br/>

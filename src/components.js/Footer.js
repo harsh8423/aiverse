@@ -11,9 +11,9 @@ export default function Footer() {
                 {/* <img style={{filter: 'grayscale(100%)', transform: 'rotate(-45deg)'}}height={80} width={80} src={rocket}/> */}
             </div>
             <div className='col-12 mt-4' style={{fontSize:'14px'}}>
-                <span className='p-2' onClick={()=>{navigate('../Sponsor')}} style={{cursor:'pointer'}}>Sponsor</span>
-                <span className='p-2' onClick={()=>{navigate('../Submit')}} style={{cursor:'pointer'}}>Submit</span>
-                <span className='p-2' onClick={()=>{navigate('../')}} style={{cursor:'pointer'}}>Newsletter</span>
+                <span className='p-2' onClick={()=>{navigate('../Sponsor');window.scrollTo(0, 0)}} style={{cursor:'pointer'}}>Sponsor</span>
+                <span className='p-2' onClick={()=>{navigate('../Submit');window.scrollTo(0, 0)}} style={{cursor:'pointer'}}>Submit</span>
+                <span className='p-2' onClick={()=>{navigate('../');window.scrollTo(0, 0)}} style={{cursor:'pointer'}}>Newsletter</span>
             </div>
             <div className='col-12 mt-5 mb-5' style={{fontSize:'14px'}}>
                 <span>© 2024 AIverse. All right reserved</span><br/>

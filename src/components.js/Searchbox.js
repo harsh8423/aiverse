@@ -14,7 +14,8 @@ function Searchbox(props) {
     a?.interactions?.map((item,index)=>{
       const data={
         id:index,
-        name:item.name
+        name:item.name,
+        pattern:item.pattern
       }
       newArray.push(data)
     })
@@ -33,9 +34,9 @@ function Searchbox(props) {
   const handleOnSelect = (item) => {
     // the item selected
     if(props?.edit){
-      navigate(`../EditInteraction/${item.urlSlug}`, {state: item})
+      navigate(`../EditInteraction/${a.interactions[item.id].urlSlug}`, {state: a.interactions[item.id]})
     }else{
-      navigate(`../Browse/${item.urlSlug}-${item._id}`, {state: item})
+      navigate(`../Browse/${a.interactions[item.id].urlSlug}-${a.interactions[item.id]._id}`, {state: a.interactions[item.id]})
 
     }
     console.log(item)

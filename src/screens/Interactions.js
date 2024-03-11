@@ -125,7 +125,7 @@ export default function Interactions() {
         </div>}
           {moreAppname && moreAppname.map((item,index)=>{
             return(
-              <div className='col-4 p-3 shover' onClick={() => {navigate(`../Browse/${item.urlSlug}`, {state: item});window.location.reload()}} style={{cursor:'pointer'}} key={index}>
+              <div className='col-4 p-3 shover' onClick={() => {navigate(`../Browse/${item.urlSlug}-${item._id}`, {state: item});window.location.reload();}} style={{cursor:'pointer'}} key={index}>
                 <div className='mt-1'>
                   <DisplayMedia url={`${cdnURL}${item.gifUrl}`}/>
                 </div>
@@ -144,7 +144,7 @@ export default function Interactions() {
           </div>}
           {morePattern && morePattern.map((item,index)=>{
             return(
-              <div className='col-4 p-3 shover' onClick={() => {navigate(`../Browse/${item.urlSlug}`, {state: item});window.location.reload()}} style={{cursor:'pointer'}} key={index}>
+              <div className='col-4 p-3 shover' onClick={() => {navigate(`../Browse/${item.urlSlug}-${item._id}`, {state: item});window.location.reload()}} style={{cursor:'pointer'}} key={index}>
                 <div className='mt-1'>
                   <DisplayMedia url={`${cdnURL}${item.gifUrl}`}/>
                 </div>
