@@ -91,34 +91,33 @@ export default function Browse(props) {
   const [appName, setappName] = useState(props?.appName || admin?.appName)
 
   useEffect(() => {
-
+    if(selectedappName || selectedindustry || selectedpattern){
+      
     console.log(selectedappName)
-      const updatedInteraction = a.interactions.filter((item) => {
-        let a=true // Initialize match as true for each item
-        let b=true // Initialize match as true for each item
-        let c=true // Initialize match as true for each item
+    const updatedInteraction = a.interactions.filter((item) => {
+      let a=true // Initialize match as true for each item
+      let b=true // Initialize match as true for each item
+      let c=true // Initialize match as true for each item
 
-        // Check if selectedappName is defined and matches the item's appName
-        if (selectedappName && selectedappName !== item.appName) {
-          a = false;
-        }
-    
-        // Check if selectedpattern is defined and matches the item's pattern
-        if (selectedpattern && selectedpattern !== item.pattern) {
-          b = false;
-        }
-    
-        // Check if selectedindustry is defined and matches the item's industry
-        if (selectedindustry && selectedindustry !== item.industry) {
-          c = false;
-        }
-    
-        console.log(item.appName)
-        console.log((a&&b&&c))
-        return (a&&b&&c); // Return true only if all conditions are matched
-      });
-    
-      setinteractions(updatedInteraction);
+      // Check if selectedappName is defined and matches the item's appName
+      if (selectedappName && selectedappName !== item.appName) {
+        a = false;
+      }
+  
+      // Check if selectedpattern is defined and matches the item's pattern
+      if (selectedpattern && selectedpattern !== item.pattern) {
+        b = false;
+      }
+  
+      // Check if selectedindustry is defined and matches the item's industry
+      if (selectedindustry && selectedindustry !== item.industry) {
+        c = false;
+      }
+      return (a&&b&&c); // Return true only if all conditions are matched
+    });
+  
+    setinteractions(updatedInteraction);
+    }
   }, [selectedappName,selectedindustry,selectedpattern])
   
   
