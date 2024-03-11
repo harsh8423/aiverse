@@ -3,7 +3,6 @@ import { Bars } from 'react-loader-spinner'
 import robot from "../images/robot.webp"
 import { toast, Toaster } from "react-hot-toast";
 
-
 export default function Voyager(){
 
     const [email, setemail] = useState("")
@@ -96,17 +95,25 @@ export default function Voyager(){
                                 </span>
                             </h2>
                         </div>
-                        <div className='xxx' style={{overflow:'hidden', width:'600px'}}>
-                            <marquee>
-                                <ul style={{listStyle:'none', display:'flex', flexDirection:'row', justifyContent:'center', alignItems:'center',}}>
-                                    <li className='m-3'><img style={{filter: 'grayscale(100%)'}} width={90} height={20} src='https://framerusercontent.com/images/c5JtGZyQtPE6LJ2fzel0nwnDXr8.png?scale-down-to=2048' alt='.'/></li>
-                                    <li className='m-3'><img style={{filter: 'grayscale(100%)'}} width={90} height={50} src='https://framerusercontent.com/images/IV77MhrItS3CPdUHUvJpVoW8Zx0.png?scale-down-to=2048' alt='.'/></li>
-                                    <li className='m-3'><img style={{filter: 'grayscale(100%)'}} width={90} height={20} src='https://framerusercontent.com/images/jlxVQ8fBIZaMlGVT68N3sA4jk.png?scale-down-to=1024' alt='.'/></li>
-                                    <li className='m-3'><img style={{filter: 'grayscale(100%)'}} width={90} height={20} src='https://framerusercontent.com/images/OajRFQhOaWAsElVarIfrW6qWdjo.png?scale-down-to=512' alt='.'/></li>
-                                    <li className='m-3'><img style={{filter: 'grayscale(100%)'}} width={90} height={50} src='https://framerusercontent.com/images/buZs8ZPFXFkLepJ3YBzk4NQAw0.png' alt='.'/></li>
-                                    <li className='m-3'><img style={{filter: 'grayscale(100%)'}} width={90} height={40} src='https://framerusercontent.com/images/t8G7CNhQoMsBPqmbs6zyFMyyd54.png?scale-down-to=1024' alt='.'/></li>
-                                </ul>   
-                            </marquee>
+                        <div className='logos xxx' style={{overflow:'hidden', width:'600px'}}>
+                            <div className='logos-slide'>
+
+                                    <span className='m-3'><img style={{filter: 'grayscale(100%)'}} width={90} height={20} src='https://framerusercontent.com/images/c5JtGZyQtPE6LJ2fzel0nwnDXr8.png?scale-down-to=2048' alt='.'/></span>
+                                    <span className='m-3'><img style={{filter: 'grayscale(100%)'}} width={90} height={50} src='https://framerusercontent.com/images/IV77MhrItS3CPdUHUvJpVoW8Zx0.png?scale-down-to=2048' alt='.'/></span>
+                                    <span className='m-3'><img style={{filter: 'grayscale(100%)'}} width={90} height={20} src='https://framerusercontent.com/images/jlxVQ8fBIZaMlGVT68N3sA4jk.png?scale-down-to=1024' alt='.'/></span>
+                                    <span className='m-3'><img style={{filter: 'grayscale(100%)'}} width={90} height={20} src='https://framerusercontent.com/images/OajRFQhOaWAsElVarIfrW6qWdjo.png?scale-down-to=512' alt='.'/></span>
+                                    <span className='m-3'><img style={{filter: 'grayscale(100%)'}} width={90} height={50} src='https://framerusercontent.com/images/buZs8ZPFXFkLepJ3YBzk4NQAw0.png' alt='.'/></span>
+                                    <span className='m-3'><img style={{filter: 'grayscale(100%)'}} width={90} height={40} src='https://framerusercontent.com/images/t8G7CNhQoMsBPqmbs6zyFMyyd54.png?scale-down-to=1024' alt='.'/></span>
+                            </div>
+                            <div className='logos-slide'>
+
+                                    <span className='m-3'><img style={{filter: 'grayscale(100%)'}} width={90} height={20} src='https://framerusercontent.com/images/c5JtGZyQtPE6LJ2fzel0nwnDXr8.png?scale-down-to=2048' alt='.'/></span>
+                                    <span className='m-3'><img style={{filter: 'grayscale(100%)'}} width={90} height={50} src='https://framerusercontent.com/images/IV77MhrItS3CPdUHUvJpVoW8Zx0.png?scale-down-to=2048' alt='.'/></span>
+                                    <span className='m-3'><img style={{filter: 'grayscale(100%)'}} width={90} height={20} src='https://framerusercontent.com/images/jlxVQ8fBIZaMlGVT68N3sA4jk.png?scale-down-to=1024' alt='.'/></span>
+                                    <span className='m-3'><img style={{filter: 'grayscale(100%)'}} width={90} height={20} src='https://framerusercontent.com/images/OajRFQhOaWAsElVarIfrW6qWdjo.png?scale-down-to=512' alt='.'/></span>
+                                    <span className='m-3'><img style={{filter: 'grayscale(100%)'}} width={90} height={50} src='https://framerusercontent.com/images/buZs8ZPFXFkLepJ3YBzk4NQAw0.png' alt='.'/></span>
+                                    <span className='m-3'><img style={{filter: 'grayscale(100%)'}} width={90} height={40} src='https://framerusercontent.com/images/t8G7CNhQoMsBPqmbs6zyFMyyd54.png?scale-down-to=1024' alt='.'/></span>
+                            </div>
                         </div>
                     </div>
                 </div>

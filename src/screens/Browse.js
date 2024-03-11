@@ -28,7 +28,8 @@ import 'swiper/css/pagination';
 
 
 
-export default function Browse(props) {
+export default function Browse(props,{changeBackgroundColor}) {
+
   
   const [uploadDate, setuploadDate] = useState("")
   const [morePattern, setmorePattern] = useState([])
@@ -85,6 +86,8 @@ export default function Browse(props) {
   const [selectedpattern, setselectedpattern] = useState('')
   const [selectedindustry, setselectedindustry] = useState('')
   const [selectedappName, setselectedappName] = useState('')
+  const [BackgroundColor, setBackgroundColor] = useState('')
+
 
   const [pattern, setpattern] = useState(props?.pattern || admin?.pattern)
   const [industry, setindustry] = useState(props?.industry || admin?.industry)
@@ -123,10 +126,16 @@ export default function Browse(props) {
   
   
   function openModal(index) {
+    if(typeof props.changeBackgroundColor === 'function'){
+      props?.handleScrollOff();
+    }
     window.history.pushState(null, 'unused', `/Browse/${interactions[index]?.urlSlug}-${interactions[index]?._id}`)
     setIsOpen(true);
   }
   function closeModal() {
+    if(typeof props.changeBackgroundColor === 'function'){
+      props?.handleScrollOff();
+    }
     window.history.back();
     setIsOpen(false);
   }
@@ -169,7 +178,7 @@ const customStyles = {
     height:'95%',
     overflow:'auto',
     borderRadius:'20px',
-    zIndex:30
+    zIndex:30,
   },
 };
 
@@ -197,10 +206,10 @@ const DisplayVideo=({url}) =>{
   // Function to render media based on URL type
   const renderMedia = () => {
     if (isImageURL(url)) {
-      return <img style={{objectFit:'cover',}} src={url} width="100%" height='90%' alt="Image" />;
+      return <img style={{objectFit:'contain',maxHeight:'700px'}} src={url} width="100%"  alt="Image" />;
     } else if (isVideoURL(url)) {
       return (
-        <video style={{objectFit:'cover'}} controls autoPlay loop width="100%" height='90%' onContextMenu={handleContextMenu} controlsList='nodownload' muted>
+        <video style={{objectFit:'contain',maxHeight:'700px'}} controls autoPlay loop width="100%" height='90%' onContextMenu={handleContextMenu} controlsList='nodownload' muted>
           <source src={url} type="video/mp4" />
           Your browser does not support the video tag.
         </video>
@@ -229,7 +238,8 @@ const findvideo=(item)=>{
 
   return (
     <div className='container-fluid containerxyz' style={{minHeight:300}}>
-      <div className='row'>
+      {/* <div style={{height:'100vh', position:'absolute',backgroundColor:BackgroundColor}}></div> */}
+      <div className='row' style={{backgroundColor:BackgroundColor}}>
         <div className='col-12' style={{textAlign:'left'}}>
           <span style={{fontWeight:700, fontSize:'28px'}}>Browse &nbsp;</span> <span style={{color:'rgb(156, 156, 156)', fontSize:'18px'}}> {80} AI-UX Interactions</span>
         </div>
@@ -238,7 +248,7 @@ const findvideo=(item)=>{
          <div style={{margin:'0 10px 0 0'}}><img src={filtericon} width={24} height={28}/></div>
          {appName&& <div className="dropdown" style={{margin:'0 10px 0 0'}}>
             <button style={{minWidth:'100px', border:'1px solid lightgrey', backgroundColor:'white'}} className="btn btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              {selectedappName? selectedappName:"App Name"}
+              <strong>App Name </strong>{selectedappName? selectedappName:""}
             </button>
             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" style={{maxHeight:'200px', overflow:'auto'}}>
               <span style={{cursor:'pointer', minWidth:'100px'}} className="dropdown-item" onClick={()=>{setselectedappName("")}}>clear select</span>
@@ -251,7 +261,7 @@ const findvideo=(item)=>{
           </div>}
           {pattern&& <div className="dropdown" style={{margin:'0 10px 0 0'}}>
             <button style={{minWidth:'100px', border:'1px solid lightgrey', backgroundColor:'white'}} className="btn btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              {selectedpattern? selectedpattern:"Pattern"}
+              <strong>Pattern </strong>{selectedpattern? selectedpattern:""}
             </button>
             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" style={{maxHeight:'200px', overflow:'auto'}}>
             <span style={{cursor:'pointer', minWidth:'100px'}} className="dropdown-item" onClick={()=>{setselectedpattern("")}}>clear select</span>
@@ -264,7 +274,7 @@ const findvideo=(item)=>{
           </div>}
           {industry && <div className="dropdown" style={{margin:'0 10px 0 0'}}>
             <button style={{minWidth:'100px', border:'1px solid lightgrey', backgroundColor:'white'}} className="btn btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              {selectedindustry? selectedindustry:"Industry"}
+              <strong>Industry </strong>{selectedindustry? selectedindustry:""}
             </button>
             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" style={{maxHeight:'200px', overflow:'auto'}}>
             <span style={{cursor:'pointer', minWidth:'100px'}} className="dropdown-item" onClick={()=>{setselectedindustry("")}}>clear select</span>
@@ -305,6 +315,7 @@ const findvideo=(item)=>{
       <Modal
         isOpen={modalIsOpen}
         style={customStyles}
+        overlayClassName="Overlay"
 
         // className='myDiv'
         onRequestClose={closeModal}
@@ -324,7 +335,7 @@ const findvideo=(item)=>{
             slidesPerView={1.3}
             spaceBetween={30}
             centeredSlides={true}
-            // navigation={true}
+            navigation={true}
             // pagination={true}
             mousewheel={true}
             // keyboard={true}
@@ -338,7 +349,7 @@ const findvideo=(item)=>{
             </SwiperSlide>
             {video?.images?.map((item)=>{
               return(
-                <SwiperSlide><img  src={`${cdnURL}${item}`} width="100%" height='80%' alt="Image" /></SwiperSlide>
+                <SwiperSlide><img  src={`${cdnURL}${item}`} style={{objectFit:'contain',maxHeight:'500px'}} width="100%" height='80%' alt="Image" /></SwiperSlide>
 
               )
             })}

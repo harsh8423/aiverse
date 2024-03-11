@@ -97,7 +97,7 @@ export default function Interactions() {
             slidesPerView={1.3}
             spaceBetween={30}
             centeredSlides={true}
-            // navigation={true}
+            navigation={true}
             // pagination={true}
             mousewheel={true}
             keyboard={true}

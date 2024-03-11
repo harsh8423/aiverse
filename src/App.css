@@ -141,3 +141,88 @@ background: linear-gradient(180deg, rgba(139,167,32,0) 0%, rgba(255,255,255,1) 1
   background-color: #ffffff;
   opacity: 1
 } */
+
+
+
+/* 
+.ReactModal__Overlay {
+  background-color: black;
+} */
+
+  .Overlay {
+    backdrop-filter: blur(2px); /* Adjust the blur radius as needed */
+    background-color: rgba(0, 0, 0, 0.8); 
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    opacity:1;
+    /* background-color: black; */
+  }
+
+
+
+
+  .swiper-button-next,
+          .swiper-button-prev {
+            background-color: rgb(79, 77, 77,0.5);
+            border-radius: 100%;
+            padding: 25px 25px;
+            color: white;
+            
+          }
+          .swiper-button-next::after,
+          .swiper-button-prev::after {
+            border-radius: 100%;
+            font-size: 15px;
+          }
+
+
+          .swiper-button-next:hover,
+          .swiper-button-prev:hover {
+            background-color: rgb(36, 36, 36,0.8);
+            
+          }
+
+
+          @keyframes slide {
+            from {
+              transform: translateX(0);
+            }
+            to {
+              transform: translateX(-100%);
+            }
+          }
+          
+          .logos {
+            overflow: hidden;
+            padding: 10px 0;
+            background: white;
+            white-space: nowrap;
+            position: relative;
+          }
+          
+          .logos:before,
+          .logos:after {
+            position: absolute;
+            top: 0;
+            width: 250px;
+            height: 100%;
+            content: "";
+            z-index: 2;
+          }
+          
+          /* .logos:before {
+            left: 0;
+            background: linear-gradient(to left, rgba(255, 255, 255, 0), white);
+          }
+          
+          .logos:after {
+            right: 0;
+            background: linear-gradient(to right, rgba(255, 255, 255, 0), white);
+          } */
+          .logos-slide {
+            display: inline-block;
+            animation: 20s slide infinite linear;
+          }

@@ -10,9 +10,13 @@ function Searchbox(props) {
   const [interactions, setinteractions] = useState([])
 
   useEffect(() => {
-    const newArray=a?.interactions
-    newArray?.map((item,index)=>{
-      item.id=index
+    const newArray=[]
+    a?.interactions?.map((item,index)=>{
+      const data={
+        id:index,
+        name:item.name
+      }
+      newArray.push(data)
     })
     setinteractions(newArray)
   }, [a])
