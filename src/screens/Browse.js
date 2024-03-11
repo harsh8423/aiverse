@@ -292,7 +292,7 @@ const findvideo=(item)=>{
                   selectedappName ? selectedappName[0] : ""
                 )}
               </button>
-            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" style={{maxHeight:'100px', overflow:'auto'}}>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" style={{maxHeight:'200px', overflow:'auto'}}>
               <span style={{cursor:'pointer', minWidth:'100px'}} className="dropdown-item" onClick={()=>{setselectedappName("")}}>clear select</span>
               {appName.map((item)=>{
                 return(
