@@ -113,6 +113,7 @@ export default function Browse(props) {
       if (selectedindustry && selectedindustry !== item.industry) {
         c = false;
       }
+      
       return (a&&b&&c); // Return true only if all conditions are matched
     });
   
