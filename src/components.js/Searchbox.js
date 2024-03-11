@@ -31,7 +31,7 @@ function Searchbox(props) {
     if(props?.edit){
       navigate(`../EditInteraction/${item.urlSlug}`, {state: item})
     }else{
-      navigate(`../Browse/${item.urlSlug}`, {state: item})
+      navigate(`../Browse/${item.urlSlug}-${item._id}`, {state: item})
 
     }
     console.log(item)
