@@ -22,7 +22,7 @@ export default function Sponsor() {
 
   const addsponsor = async()=>{
     setspinner(true)  
-    const response = await fetch("http://localhost:5000/api/addsponsor", {
+    const response = await fetch("https://aiverse-backend.vercel.app/api/addsponsor", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

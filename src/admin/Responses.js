@@ -35,7 +35,7 @@ export default function Responses(props) {
 
     const deleteResponse = async()=>{
         setspinner(true)
-        const response = await fetch(`http://localhost:5000/api/delete${pageState}`, {
+        const response = await fetch(`https://aiverse-backend.vercel.app/api/delete${pageState}`, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",

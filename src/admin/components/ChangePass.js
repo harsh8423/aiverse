@@ -14,7 +14,7 @@ export default function ChangePass(props) {
 
     const changePassword = async()=>{
         console.log(Pass)
-        const response = await fetch("http://localhost:5000/api/changePassword", {
+        const response = await fetch("https://aiverse-backend.vercel.app/api/changePassword", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",

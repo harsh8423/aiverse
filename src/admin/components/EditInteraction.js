@@ -42,7 +42,7 @@ export default function EditInteraction(props) {
     const editInteraction = async()=>{
         
         setspinner(true)
-        const response = await fetch("http://localhost:5000/api/editInteraction", {
+        const response = await fetch("https://aiverse-backend.vercel.app/api/editInteraction", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -83,7 +83,7 @@ export default function EditInteraction(props) {
     const deleteInteraction = async()=>{
         
         setspinner(true)
-        const response = await fetch(`http://localhost:5000/api/deleteInteraction/${interactions._id}`, {
+        const response = await fetch(`https://aiverse-backend.vercel.app/api/deleteInteraction/${interactions._id}`, {
           method: "DELETE",
           headers: {
             "Content-Type": "application/json",

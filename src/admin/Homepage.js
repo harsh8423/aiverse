@@ -16,7 +16,7 @@ export default function Homepage() {
   const [pageState, setpageState] = useState("")
   const getData = async()=>{
         
-    const response = await fetch("http://localhost:5000/api/getAdmin", {
+    const response = await fetch("https://aiverse-backend.vercel.app/api/getAdmin", {
       method: "GET",
       headers: {
         "Content-Type": "application/json",

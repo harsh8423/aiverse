@@ -21,7 +21,7 @@ export default function Submit() {
 
   const addsubmit = async()=>{
     setspinner(true)    
-    const response = await fetch("http://localhost:5000/api/addsubmit", {
+    const response = await fetch("https://aiverse-backend.vercel.app/api/addsubmit", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

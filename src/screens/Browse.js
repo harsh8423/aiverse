@@ -217,7 +217,14 @@ const DisplayVideo=({url}) =>{
   )
 }
 
+const findvideo=(item)=>{
+  const getIndex = interactions.findIndex((x)=> x._id===item?._id)
+  console.log(getIndex)
+  if(getIndex!=-1){
 
+    setvideoIndex(getIndex)
+  }
+}
 
 
   return (
@@ -345,7 +352,7 @@ const DisplayVideo=({url}) =>{
         </div>}
           {moreAppname && moreAppname.map((item,index)=>{
             return(
-              <div className='col-4 p-3 shover' onClick={() => {setvideoIndex(index)}} style={{cursor:'pointer'}} key={index}>
+              <div className='col-4 p-3 shover' onClick={() => {findvideo(item)}} style={{cursor:'pointer'}} key={index}>
                 <div className='mt-1'>
                   <DisplayMedia url={`${cdnURL}${item.gifUrl}`}/>
                 </div>
@@ -364,7 +371,7 @@ const DisplayVideo=({url}) =>{
           </div>}
           {morePattern && morePattern.map((item,index)=>{
             return(
-              <div className='col-4 p-3 shover' onClick={() => {navigate(`../Browse/${item.urlSlug}`, {state: item});window.location.reload()}} style={{cursor:'pointer'}} key={index}>
+              <div className='col-4 p-3 shover' onClick={() => {findvideo(item)}} style={{cursor:'pointer'}} key={index}>
                 <div className='mt-1'>
                   <DisplayMedia url={`${cdnURL}${item.gifUrl}`}/>
                 </div>

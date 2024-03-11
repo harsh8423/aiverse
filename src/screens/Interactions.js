@@ -28,7 +28,7 @@ export default function Interactions() {
   
   const getInteraction = async(id)=>{
     
-    const response = await fetch("http://localhost:5000/api/getAll", {
+    const response = await fetch("https://aiverse-backend.vercel.app/api/getAll", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

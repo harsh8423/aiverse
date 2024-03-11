@@ -13,7 +13,7 @@ export default function Voyager(){
         
         if(email){
             setspinner(true)    
-            const response = await fetch("http://localhost:5000/api/addemail", {
+            const response = await fetch("https://aiverse-backend.vercel.app/api/addemail", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",

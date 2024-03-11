@@ -39,7 +39,7 @@ export default function Home() {
     
     const getInteraction = async()=>{
         
-        const response = await fetch("http://localhost:5000/api/getInteraction", {
+        const response = await fetch("https://aiverse-backend.vercel.app/api/getInteraction", {
             method: "GET",
             headers: {
                 "Content-Type": "application/json",
@@ -68,7 +68,7 @@ export default function Home() {
       const [Admin, setAdmin] = useState(null)
       const getData = async()=>{
             
-        const response = await fetch("http://localhost:5000/api/getAdmin", {
+        const response = await fetch("https://aiverse-backend.vercel.app/api/getAdmin", {
           method: "GET",
           headers: {
             "Content-Type": "application/json",

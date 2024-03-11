@@ -21,7 +21,7 @@ export default function ChangelogSettings() {
 
     const addchangelog = async()=>{
         
-        const response = await fetch("http://localhost:5000/api/addchangelog", {
+        const response = await fetch("https://aiverse-backend.vercel.app/api/addchangelog", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -48,7 +48,7 @@ export default function ChangelogSettings() {
 
     const deletechangelog = async()=>{
       setspinner(true)
-      const response = await fetch(`http://localhost:5000/api/deletechangelog`, {
+      const response = await fetch(`https://aiverse-backend.vercel.app/api/deletechangelog`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -74,7 +74,7 @@ export default function ChangelogSettings() {
 
     const getData = async()=>{
         
-        const response = await fetch("http://localhost:5000/api/getchangelog", {
+        const response = await fetch("https://aiverse-backend.vercel.app/api/getchangelog", {
           method: "GET",
           headers: {
             "Content-Type": "application/json",

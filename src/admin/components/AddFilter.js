@@ -28,7 +28,7 @@ export default function AddFilter() {
 
     const addFilterx = async()=>{
         
-        const response = await fetch("http://localhost:5000/api/addFilter", {
+        const response = await fetch("https://aiverse-backend.vercel.app/api/addFilter", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -60,7 +60,7 @@ export default function AddFilter() {
       
       const deletefilter = async()=>{
         setspinner(true)
-        const response = await fetch(`http://localhost:5000/api/delete${category}`, {
+        const response = await fetch(`https://aiverse-backend.vercel.app/api/delete${category}`, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",

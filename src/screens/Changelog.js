@@ -9,7 +9,7 @@ export default function Changelog() {
 
     const getData = async()=>{
         
-        const response = await fetch("http://localhost:5000/api/getchangelog", {
+        const response = await fetch("https://aiverse-backend.vercel.app/api/getchangelog", {
           method: "GET",
           headers: {
             "Content-Type": "application/json",
