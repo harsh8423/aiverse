@@ -8,8 +8,7 @@ import filtericon from "../images/filter.png";
 import Modal from "react-modal";
 import trash from "../images/trash.png";
 import cancelIcon from "../images/cancel.png";
-import { Bars } from 'react-loader-spinner'
-
+import { Bars } from "react-loader-spinner";
 
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -75,12 +74,11 @@ export default function Browse(props, { changeBackgroundColor }) {
   let navigate = useNavigate();
   const a = useContext(ContextApi);
   const [interactions, setinteractions] = useState(a.interactions);
-  const [spinner, setspinner] = useState(true)
+  const [spinner, setspinner] = useState(true);
 
   useEffect(() => {
-    setspinner(false)
-  }, [a])
-  
+    setspinner(false);
+  }, [a]);
 
   const [pattern, setpattern] = useState(props?.pattern || admin?.pattern);
   const [industry, setindustry] = useState(props?.industry || admin?.industry);
@@ -124,7 +122,7 @@ export default function Browse(props, { changeBackgroundColor }) {
       });
 
       setinteractions(updatedInteraction);
-    }else{
+    } else {
       setinteractions(a.interactions);
     }
   }, [selectedappName, selectedindustry, selectedpattern]);
@@ -147,7 +145,6 @@ export default function Browse(props, { changeBackgroundColor }) {
     window.history.back();
     setIsOpen(false);
   }
-
   // Function to handle checkbox change event
   const handleappname = (event, item) => {
     const isChecked = event.target.checked;
@@ -225,7 +222,6 @@ export default function Browse(props, { changeBackgroundColor }) {
       overflow: "auto",
       borderRadius: "20px",
       zIndex: 30,
-      
     },
   };
 
@@ -287,316 +283,354 @@ export default function Browse(props, { changeBackgroundColor }) {
       setvideoIndex(getIndex);
     }
   };
+  const [newstatus, setnewstatus] = useState(false)
 
 
+    
+  useEffect(() => {
+    function isUploadDate() {
+      const uploadDateObj = new Date(video?.uploadDate);
+      const currentDate = new Date();
+      const differenceInMs = currentDate - uploadDateObj;
+      const differenceInDays = differenceInMs / (1000 * 60 * 60 * 24);
+      if(differenceInDays <= 7){
+        console.log(true)
+        setnewstatus(true)
+      }
+    }
+    isUploadDate()
+  }, [video])
 
 
-
-
-
+  function isUploadDate(uploadDate) {
+    const uploadDateObj = new Date(uploadDate);
+    const currentDate = new Date();
+    const differenceInMs = currentDate - uploadDateObj;
+    const differenceInDays = differenceInMs / (1000 * 60 * 60 * 24);
+    return differenceInDays <= 7
+    
+  }
+  
 
 
 
   return (
     <div className="container-fluid containerxyz" style={{ minHeight: 300 }}>
       {/* <div style={{height:'100vh', position:'absolute',backgroundColor:BackgroundColor}}></div> */}
-      {!interactions? (
-          <Bars
-                  height="100"
-                  width="100"
-                  color="#A884DB"
-                  ariaLabel="bars-loading"
-                  wrapperStyle={{}}
-                  wrapperClass=""
-                  visible={true}
-                  />
-                  )
-                  :(
-                    <div className="row" style={{ backgroundColor: BackgroundColor }}>
-        <div className="col-12" style={{ textAlign: "left" }}>
-          <span style={{ fontWeight: 700, fontSize: "28px" }}>
-            Browse &nbsp;
-          </span>{" "}
-          <span style={{ color: "rgb(156, 156, 156)", fontSize: "18px" }}>
-            {" "}
-            {a.interactions.length} AI-UX Interactions
-          </span>
-        </div>
-        {!modalIsOpen && (
-          <div
-          className="col-12 mt-2 sticky-div"
-          style={{
-            textAlign: "left",
-            display: "flex",
-            justifyContent: "left",
-            alignItems: "center",
-          }}
-          >
+      {!interactions ? (
+        <Bars
+          height="100"
+          width="100"
+          color="#A884DB"
+          ariaLabel="bars-loading"
+          wrapperStyle={{}}
+          wrapperClass=""
+          visible={true}
+        />
+      ) : (
+        <div className="row" style={{ backgroundColor: BackgroundColor }}>
+          <div className="col-12" style={{ textAlign: "left" }}>
+            <span style={{ fontWeight: 700, fontSize: "28px" }}>
+              Browse &nbsp;
+            </span>{" "}
+            <span style={{ color: "rgb(156, 156, 156)", fontSize: "18px" }}>
+              {" "}
+              {a.interactions.length} AI-UX Interactions
+            </span>
+          </div>
+          {!modalIsOpen && (
             <div
+              className="col-12 mt-2 sticky-div"
               style={{
                 textAlign: "left",
                 display: "flex",
-                justifyContent: "space-around",
+                justifyContent: "left",
                 alignItems: "center",
-                margin: "0 20px 0 0",
               }}
+            >
+              <div
+                style={{
+                  textAlign: "left",
+                  display: "flex",
+                  justifyContent: "space-around",
+                  alignItems: "center",
+                  margin: "0 20px 0 0",
+                }}
               >
-              <div style={{ margin: "0 10px 0 0" }}>
-                <img src={filtericon} width={24} height={28} />
-              </div>
-              {appName && (
-                <div className="dropdown" style={{ margin: "0 10px 0 0", cursor:'pointer' }}>
-                  <button
-                    style={{
-                      minWidth: "100px",
-                      border: "1px solid lightgrey",
-                      backgroundColor: "white",
-                    }}
-                    className="btn btn dropdown-toggle"
-                    type="button"
-                    id="dropdownMenuButton"
-                    data-toggle="dropdown"
-                    aria-haspopup="true"
-                    aria-expanded="false"
-                    >
-                    <strong>AppName </strong>
-                    <small> {selectedappName[0]}</small>
-                    {selectedappName?.length > 1 && (
-                      <small style={{ fontWeight: 700, color: "grey" }}>
-                        {" +"}
-                        {selectedappName?.length - 1}
-                        {" more"}
-                      </small>
-                    ) }
-                  </button>
-                  <div
-                    class="dropdown-menu"
-                    aria-labelledby="dropdownMenuButton"
-                    style={{ maxHeight: "200px", overflow: "auto", cursor:'pointer' }}
-                    >
-                    <span
-                      style={{ cursor: "pointer", minWidth: "100px" }}
-                      className="dropdown-item"
-                      onClick={() => {
-                        setselectedappName([]);
-                      }}
-                      >
-                      clear select
-                    </span>
-                    {appName.map((item) => {
-                      return (
-                        <div
-                        className="p-2"
-                        style={{
-                          display: "inline",
-                          justifyContent: "center",
-                          alignItems: "center",
-                          cursor:'pointer'
-                        }}
-                        >
-                          <input
-                            className="m-1"
-                            checked={selectedappName.includes(item)}
-                            onChange={(event) => handleappname(event, item)}
-                            type="checkbox"
-                            id={item}
-                            name={item}
-                            value={item}
-                            style={{cursor:'pointer'}}
-                            />
-                          <label style={{cursor:'pointer'}} htmlFor={item}>{item}</label>
-                          <br />
-                        </div>
-                      );
-                    })}
-                  </div>
+                <div style={{ margin: "0 10px 0 0" }}>
+                  <img src={filtericon} width={24} height={28} />
                 </div>
-              )}
-              {pattern && (
-                <div className="dropdown" style={{ margin: "0 10px 0 0" }}>
-                  <button
-                    style={{
-                      minWidth: "100px",
-                      border: "1px solid lightgrey",
-                      backgroundColor: "white",
-                    }}
-                    className="btn btn dropdown-toggle"
-                    type="button"
-                    id="dropdownMenuButton"
-                    data-toggle="dropdown"
-                    aria-haspopup="true"
-                    aria-expanded="false"
-                    >
-                    <strong>Pattern </strong>
-                    <small> {selectedpattern[0]}</small>
-                    {selectedpattern?.length > 1 && (
-                      <small style={{ fontWeight: 700, color: "grey" }}>
-                        {" +"}
-                        {selectedpattern?.length - 1}
-                        {" more"}
-                      </small>
-                    ) }
-                  </button>
+                {appName && (
                   <div
-                    class="dropdown-menu"
-                    aria-labelledby="dropdownMenuButton"
-                    style={{ maxHeight: "200px", overflow: "auto" }}
-                    >
-                    <span
-                      style={{ cursor: "pointer", minWidth: "100px" }}
-                      className="dropdown-item"
-                      onClick={() => {
-                        setselectedpattern("");
-                      }}
-                      >
-                      clear select
-                    </span>
-                    {pattern.map((item) => {
-                      return (
-                        <div
-                        className="p-2"
-                        style={{
-                          display: "inline",
-                          justifyContent: "center",
-                          alignItems: "center",
-                        }}
-                        >
-                          <input
-                            className="m-1"
-                            checked={selectedpattern.includes(item)}
-                            onChange={(event) => handlepattern(event, item)}
-                            type="checkbox"
-                            id={item}
-                            name={item}
-                            value={item}
-                            />
-
-                          <label htmlFor={item}>{item}</label>
-                          <br />
-                        </div>
-                      );
-                    })}
-                  </div>
-                </div>
-              )}
-              {industry && (
-                <div className="dropdown" style={{ margin: "0 10px 0 0" }}>
-                  <button
-                    style={{
-                      minWidth: "100px",
-                      border: "1px solid lightgrey",
-                      backgroundColor: "white",
-                    }}
-                    className="btn btn dropdown-toggle"
-                    type="button"
-                    id="dropdownMenuButton"
-                    data-toggle="dropdown"
-                    aria-haspopup="true"
-                    aria-expanded="false"
-                    >
-                    <strong>Industry </strong>
-                    <small> {selectedindustry[0]}</small>
-                    {selectedindustry?.length > 1 && (
-                      <small style={{ fontWeight: 700, color: "grey" }}>
-                        {" +"}
-                        {selectedindustry?.length - 1}
-                        {" more"}
-                      </small>
-                    ) }
-                  </button>
-                  <div
-                    class="dropdown-menu"
-                    aria-labelledby="dropdownMenuButton"
-                    style={{ maxHeight: "200px", overflow: "auto" }}
-                    >
-                    <span
-                      style={{ cursor: "pointer", minWidth: "100px" }}
-                      className="dropdown-item"
-                      onClick={() => {
-                        setselectedindustry("");
-                      }}
-                      >
-                      clear select
-                    </span>
-                    {industry.map((item) => {
-                      return (
-                        <div
-                        className="p-2"
-                        style={{
-                          display: "inline",
-                          justifyContent: "center",
-                          alignItems: "center",
-                        }}
-                        >
-                          <input
-                            className="m-1"
-                            checked={selectedindustry.includes(item)}
-                            onChange={(event) => handleindustry(event, item)}
-                            type="checkbox"
-                            id={item}
-                            name={item}
-                            value={item}
-                            />
-
-                          <label htmlFor={item}>{item}</label>
-                          <br />
-                        </div>
-                      );
-                    })}
-                  </div>
-                </div>
-              )}
-            </div>
-            <span>
-              <Searchbox />
-            </span>
-          </div>
-        )}
-        <div className="col-12" >
-          <div className="container-fluid mt-2 ">
-            <div className="row">
-              {/* <div className=''> */}
-              {/* <div style={{display:'flex', flexWrap:'wrap',justifyContent:'space-evenly'}}> */}
-              {interactions?.map((item, index) => {
-                return (
-                  <div
-                  className="col-4 p-3 shover"
-                  onClick={() => {
-                    opentab(index);
-                  }}
-                  style={{ cursor: "pointer" }}
-                  key={index}
+                    className="dropdown"
+                    style={{ margin: "0 10px 0 0", cursor: "pointer" }}
                   >
-                    <div className="mt-1">
-                      <DisplayMedia url={`${cdnURL}${item.gifUrl}`} />
-                    </div>
-                    <div
+                    <button
                       style={{
-                        fontWeight: 550,
-                        fontSize: "13px",
-                        display: "flex",
-                        justifyContent: "space-between",
-                        margin: "4px 10px",
+                        minWidth: "100px",
+                        border: "1px solid lightgrey",
+                        backgroundColor: "white",
                       }}
+                      className="btn btn dropdown-toggle"
+                      type="button"
+                      id="dropdownMenuButton"
+                      data-toggle="dropdown"
+                      aria-haspopup="true"
+                      aria-expanded="false"
+                    >
+                      <strong>AppName </strong>
+                      <small> {selectedappName[0]}</small>
+                      {selectedappName?.length > 1 && (
+                        <small style={{ fontWeight: 700, color: "grey" }}>
+                          {" +"}
+                          {selectedappName?.length - 1}
+                          {" more"}
+                        </small>
+                      )}
+                    </button>
+                    <div
+                      class="dropdown-menu"
+                      aria-labelledby="dropdownMenuButton"
+                      style={{
+                        maxHeight: "200px",
+                        overflow: "auto",
+                        cursor: "pointer",
+                      }}
+                    >
+                      <span
+                        style={{ cursor: "pointer", minWidth: "100px" }}
+                        className="dropdown-item"
+                        onClick={() => {
+                          setselectedappName([]);
+                        }}
                       >
-                      <span style={{ color: "rgb(99, 99, 99)" }}>
-                        {item.name}
+                        clear select
                       </span>
-                      <span style={{ color: "rgb(166, 166, 166)" }}>
-                        {item.pattern}
-                      </span>
+                      {appName.map((item) => {
+                        return (
+                          <div
+                            className="p-2"
+                            style={{
+                              display: "inline",
+                              justifyContent: "center",
+                              alignItems: "center",
+                              cursor: "pointer",
+                            }}
+                          >
+                            <input
+                              className="m-1"
+                              checked={selectedappName.includes(item)}
+                              onChange={(event) => handleappname(event, item)}
+                              type="checkbox"
+                              id={item}
+                              name={item}
+                              value={item}
+                              style={{ cursor: "pointer" }}
+                            />
+                            <label style={{ cursor: "pointer" }} htmlFor={item}>
+                              {item}
+                            </label>
+                            <br />
+                          </div>
+                        );
+                      })}
                     </div>
                   </div>
-                );
-              })}
-              {/* </div> */}
-              {/* </div> */}
+                )}
+                {pattern && (
+                  <div className="dropdown" style={{ margin: "0 10px 0 0" }}>
+                    <button
+                      style={{
+                        minWidth: "100px",
+                        border: "1px solid lightgrey",
+                        backgroundColor: "white",
+                      }}
+                      className="btn btn dropdown-toggle"
+                      type="button"
+                      id="dropdownMenuButton"
+                      data-toggle="dropdown"
+                      aria-haspopup="true"
+                      aria-expanded="false"
+                    >
+                      <strong>Pattern </strong>
+                      <small> {selectedpattern[0]}</small>
+                      {selectedpattern?.length > 1 && (
+                        <small style={{ fontWeight: 700, color: "grey" }}>
+                          {" +"}
+                          {selectedpattern?.length - 1}
+                          {" more"}
+                        </small>
+                      )}
+                    </button>
+                    <div
+                      class="dropdown-menu"
+                      aria-labelledby="dropdownMenuButton"
+                      style={{cursor: "pointer", maxHeight: "200px", overflow: "auto" }}
+                    >
+                      <span
+                        style={{ cursor: "pointer", minWidth: "100px" }}
+                        className="dropdown-item"
+                        onClick={() => {
+                          setselectedpattern("");
+                        }}
+                      >
+                        clear select
+                      </span>
+                      {pattern.map((item) => {
+                        return (
+                          <div
+                            className="p-2"
+                            style={{
+                              display: "inline",
+                              justifyContent: "center",
+                              cursor: "pointer",
+                              alignItems: "center",
+                            }}
+                          >
+                            <input
+                              className="m-1"
+                              checked={selectedpattern.includes(item)}
+                              onChange={(event) => handlepattern(event, item)}
+                              type="checkbox"
+                              id={item}
+                              name={item}
+                              style={{ cursor: "pointer" }}
+                              value={item}
+                            />
+
+                            <label style={{ cursor: "pointer" }} htmlFor={item}>{item}</label>
+                            <br />
+                          </div>
+                        );
+                      })}
+                    </div>
+                  </div>
+                )}
+                {industry && (
+                  <div className="dropdown" style={{ margin: "0 10px 0 0" }}>
+                    <button
+                      style={{
+                        minWidth: "100px",
+                        border: "1px solid lightgrey",
+                        backgroundColor: "white",
+                      }}
+                      className="btn btn dropdown-toggle"
+                      type="button"
+                      id="dropdownMenuButton"
+                      data-toggle="dropdown"
+                      aria-haspopup="true"
+                      aria-expanded="false"
+                    >
+                      <strong>Industry </strong>
+                      <small> {selectedindustry[0]}</small>
+                      {selectedindustry?.length > 1 && (
+                        <small style={{ fontWeight: 700, color: "grey" }}>
+                          {" +"}
+                          {selectedindustry?.length - 1}
+                          {" more"}
+                        </small>
+                      )}
+                    </button>
+                    <div
+                      class="dropdown-menu"
+                      aria-labelledby="dropdownMenuButton"
+                      style={{ maxHeight: "200px", overflow: "auto" }}
+                    >
+                      <span
+                        style={{ cursor: "pointer", minWidth: "100px" }}
+                        className="dropdown-item"
+                        onClick={() => {
+                          setselectedindustry("");
+                        }}
+                      >
+                        clear select
+                      </span>
+                      {industry.map((item) => {
+                        return (
+                          <div
+                            className="p-2"
+                            style={{
+                              display: "inline",
+                              cursor: "pointer",
+                              justifyContent: "center",
+                              alignItems: "center",
+                            }}
+                          >
+                            <input
+                              className="m-1"
+                              checked={selectedindustry.includes(item)}
+                              onChange={(event) => handleindustry(event, item)}
+                              type="checkbox"
+                              id={item}
+                              name={item}
+                              style={{ cursor: "pointer" }}
+                              value={item}
+                            />
+
+                            <label style={{ cursor: "pointer" }} htmlFor={item}>{item}</label>
+                            <br />
+                          </div>
+                        );
+                      })}
+                    </div>
+                  </div>
+                )}
+              </div>
+              <span>
+                <Searchbox />
+              </span>
+            </div>
+          )}
+          <div className="col-12">
+            <div className="container-fluid mt-2 ">
+              <div className="row">
+                {/* <div className=''> */}
+                {/* <div style={{display:'flex', flexWrap:'wrap',justifyContent:'space-evenly'}}> */}
+                {interactions?.map((item, index) => {
+                  const status=isUploadDate(item?.uploadDate)
+                  return (
+                    <div
+                      className="col-4 p-3 shover"
+                      onClick={() => {
+                        opentab(index);
+                      }}
+                      style={{ cursor: "pointer" }}
+                      key={index}
+                    >
+                      <div className="mt-1">
+                      {status? <small style={{marginLeft:'5px',borderRadius:'20px', padding:'4px 6px', backgroundColor:'#7FBC7B', color:'white',fontWeight:'bold', fontSize:'8px', position:'absolute', top:'9%', right:'5%'}}>NEW</small>:item.status=="updated"? <small style={{marginLeft:'5px',borderRadius:'20px', padding:'4px 6px', backgroundColor:'#7FBC7B', color:'white',fontWeight:'bold', fontSize:'8px', position:'absolute', top:'10%', right:'5%'}}>UPDATED</small>:''}
+
+                        <DisplayMedia url={`${cdnURL}${item.gifUrl}`} />
+                      </div>
+                      <div
+                        style={{
+                          fontWeight: 550,
+                          fontSize: "13px",
+                          display: "flex",
+                          justifyContent: "space-between",
+                          margin: "4px 10px",
+                        }}
+                      >
+                        <div style={{display:'flex', justifyContent:'center',alignItems:'center'}}>
+                          <span><img src={`${cdnURL}${item.iconUrl}`} style={{margin:'2px',marginRight:'7px'}} width={15} height={15}/></span>
+                          <span style={{ color: "rgb(99, 99, 99)" }}>
+                            {item.name}
+                          </span>
+                        </div>
+                        <span style={{ color: "rgb(166, 166, 166)" }}>
+                          {item.pattern}
+                        </span>
+                      </div>
+                    </div>
+                  );
+                })}
+                {/* </div> */}
+                {/* </div> */}
+              </div>
             </div>
           </div>
         </div>
-      </div>
-              )}
-
+      )}
 
       <Modal
         isOpen={modalIsOpen}
@@ -605,9 +639,9 @@ export default function Browse(props, { changeBackgroundColor }) {
         // className='myDiv'
         onRequestClose={closeModal}
         contentLabel="Example Modal"
-        >
+      >
         {video && (
-          <div className="container-fluid" style={{ textAlign: "left",  }}>
+          <div className="container-fluid" style={{ textAlign: "left" }}>
             <div className="row">
               <div
                 className="col-12 p-3 text-center"
@@ -616,7 +650,7 @@ export default function Browse(props, { changeBackgroundColor }) {
                   border: "1px solid lightgrey",
                   borderRadius: "12px",
                 }}
-                >
+              >
                 <div>
                   <img
                     className="scale"
@@ -625,17 +659,21 @@ export default function Browse(props, { changeBackgroundColor }) {
                     src={cancelIcon}
                     width={24}
                     height={24}
-                    />
+                  />
                 </div>
-                <div style={{ fontWeight: 545 }}>
+                <div style={{ fontWeight: 545, }}>
                   {video.pattern} AI-UX Interaction &nbsp;
                   <span style={{ color: "grey" }}>from&nbsp;</span>{" "}
+
+                  <span><img src={`${cdnURL}${video.iconUrl}`} style={{borderRadius:'8px',marginRight:'7px'}} width={25} height={25}/></span>
                   <span style={{ fontWeight: 700, fontSize: "18px" }}>
                     {video.appName}
                   </span>
+                  {newstatus? <small style={{marginLeft:'5px',borderRadius:'20px', padding:'4px 6px', backgroundColor:'#7FBC7B', color:'white',fontWeight:'bold', fontSize:'8px', position:'absolute', top:'2%'}}>NEW</small>:video.status=="updated"? <small style={{marginLeft:'5px',borderRadius:'20px', padding:'4px 6px', backgroundColor:'#7FBC7B', color:'white',fontWeight:'bold', fontSize:'8px', position:'absolute', top:'2%'}}>UPDATED</small>:''}
+
                   <span
                     style={{ color: "grey", fontSize: "14px", float: "right" }}
-                    >
+                  >
                     Captured on {uploadDate}
                   </span>
                   <hr />
@@ -652,7 +690,7 @@ export default function Browse(props, { changeBackgroundColor }) {
                   // keyboard={true}
                   modules={[Navigation, Pagination, Mousewheel, Keyboard]}
                   className="mySwiper"
-                  >
+                >
                   <SwiperSlide>
                     <div style={{ maxHeight: "" }}>
                       <DisplayVideo url={`${cdnURL}${video.videoUrl}`} />
@@ -666,7 +704,7 @@ export default function Browse(props, { changeBackgroundColor }) {
                           width="100%"
                           height="80%"
                           alt="Image"
-                          />
+                        />
                       </SwiperSlide>
                     );
                   })}
@@ -674,7 +712,7 @@ export default function Browse(props, { changeBackgroundColor }) {
                 <div
                   className="p-2"
                   style={{ fontWeight: 545, textAlign: "left" }}
-                  >
+                >
                   {video.name}
                   <span>&nbsp;- {video.content}</span>
                   <br />
@@ -700,13 +738,13 @@ export default function Browse(props, { changeBackgroundColor }) {
                     moreAppname.map((item, index) => {
                       return (
                         <div
-                        className="col-4 p-3 shover"
-                        onClick={() => {
-                          findvideo(item);
+                          className="col-4 p-3 shover"
+                          onClick={() => {
+                            findvideo(item);
                           }}
                           style={{ cursor: "pointer" }}
                           key={index}
-                          >
+                        >
                           <div className="mt-1">
                             <DisplayMedia url={`${cdnURL}${item.gifUrl}`} />
                           </div>
@@ -718,10 +756,13 @@ export default function Browse(props, { changeBackgroundColor }) {
                               justifyContent: "space-between",
                               margin: "4px 10px",
                             }}
-                            >
-                            <span style={{ color: "rgb(99, 99, 99)" }}>
-                              {item.name}
-                            </span>
+                          >
+                            <div style={{display:'flex', justifyContent:'center',alignItems:'center'}}>
+                          <span><img src={`${cdnURL}${item.iconUrl}`} style={{margin:'2px',marginRight:'7px'}} width={15} height={15}/></span>
+                          <span style={{ color: "rgb(99, 99, 99)" }}>
+                            {item.name}
+                          </span>
+                          </div>
                             <span style={{ color: "rgb(166, 166, 166)" }}>
                               {item.pattern}
                             </span>
@@ -748,12 +789,12 @@ export default function Browse(props, { changeBackgroundColor }) {
                     morePattern.map((item, index) => {
                       return (
                         <div
-                        className="col-4 p-3 shover"
-                        onClick={() => {
-                          findvideo(item);
-                        }}
-                        style={{ cursor: "pointer" }}
-                        key={index}
+                          className="col-4 p-3 shover"
+                          onClick={() => {
+                            findvideo(item);
+                          }}
+                          style={{ cursor: "pointer" }}
+                          key={index}
                         >
                           <div className="mt-1">
                             <DisplayMedia url={`${cdnURL}${item.gifUrl}`} />
@@ -766,10 +807,13 @@ export default function Browse(props, { changeBackgroundColor }) {
                               justifyContent: "space-between",
                               margin: "4px 10px",
                             }}
-                            >
-                            <span style={{ color: "rgb(99, 99, 99)" }}>
-                              {item.name}
-                            </span>
+                          >
+                              <div style={{display:'flex', justifyContent:'center',alignItems:'center'}}>
+                          <span><img src={`${cdnURL}${item.iconUrl}`} style={{margin:'2px',marginRight:'7px'}} width={15} height={15}/></span>
+                          <span style={{ color: "rgb(99, 99, 99)" }}>
+                            {item.name}
+                          </span>
+                          </div>
                             <span style={{ color: "rgb(166, 166, 166)" }}>
                               {item.pattern}
                             </span>

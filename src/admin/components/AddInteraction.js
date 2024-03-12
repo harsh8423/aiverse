@@ -20,7 +20,7 @@ export default function AddInteraction(props) {
         mediaSource: "",
         videoUrl:'',
         gifUrl:'',
-        urlSlug:'',
+        iconUrl:'',
         content:'',
       });
       const onChangeHander = (event) => {
@@ -32,7 +32,7 @@ export default function AddInteraction(props) {
           mediaSource: "",
           videoUrl:'',
           gifUrl:'',
-          urlSlug:'',
+          iconUrl:'',
           content:'',
         })
         setappName('')
@@ -48,7 +48,7 @@ export default function AddInteraction(props) {
       
       const addInteraction = async()=>{
         
-        const response = await fetch("https://aiverse-backend.vercel.app/api/addInteraction", {
+        const response = await fetch("http://localhost:5000/api/addInteraction", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -60,8 +60,8 @@ export default function AddInteraction(props) {
           appName:appName,
           pattern:pattern,
           gifUrl:credentials.gifUrl,
+          iconUrl:credentials.iconUrl,
           content:credentials.content,
-          urlSlug:credentials.urlSlug,
           videoUrl:credentials.videoUrl,
           images:images
         }),
@@ -84,7 +84,7 @@ export default function AddInteraction(props) {
 
 
     const onSubmit=()=>{
-      if(appName && industry && pattern && credentials.name && credentials.gifUrl && credentials.videoUrl && credentials.urlSlug && credentials.mediaSource){
+      if(appName && industry && pattern && credentials.name && credentials.gifUrl && credentials.videoUrl && credentials.iconUrl && credentials.mediaSource){
         setspinner(true)
         addInteraction()
       }else{
@@ -121,7 +121,7 @@ export default function AddInteraction(props) {
             <input style={{border:'2px solid grey', borderRadius:'8px',margin:'4px',}} onChange={onChangeHander} type="text" className="form__input" name="gifUrl" placeholder="gif Url" value={credentials.gifUrl} required="" />
           </div>
           <div>
-            <input style={{border:'2px solid grey', borderRadius:'8px',margin:'4px'}} onChange={onChangeHander} type="text" className="form__input" name="urlSlug" placeholder="url Slug" value={credentials.urlSlug} required="" />
+            <input style={{border:'2px solid grey', borderRadius:'8px',margin:'4px'}} onChange={onChangeHander} type="text" className="form__input" name="iconUrl" placeholder="Icon Url" value={credentials.iconUrl} required="" />
             <br/>
             <h5 style={{fontWeight:700, marginTop:'5px'}}>Content (Optional)</h5>
             <textarea style={{border:'2px solid grey', borderRadius:'8px', margin:'5px', width:'90%'}} rows={3} onChange={onChangeHander} value={credentials.content} className="form__input" name="content" placeholder="describe...." required="" />

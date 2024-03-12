@@ -56,7 +56,7 @@ export default function EditInteraction(props) {
           pattern:pattern,
           gifUrl:interactions.gifUrl,
           content:interactions.content,
-          urlSlug:interactions.urlSlug,
+          iconUrl:interactions.iconUrl,
           videoUrl:interactions.videoUrl,
           images:images
         }),
@@ -83,7 +83,7 @@ export default function EditInteraction(props) {
     const deleteInteraction = async()=>{
         
         setspinner(true)
-        const response = await fetch(`https://aiverse-backend.vercel.app/api/deleteInteraction/${interactions._id}`, {
+        const response = await fetch(`http://localhost:5000/api/deleteInteraction/${interactions._id}`, {
           method: "DELETE",
           headers: {
             "Content-Type": "application/json",
@@ -115,7 +115,7 @@ useEffect(() => {
 }, [interactions])
 
 const onUpdate=()=>{
-    if(appName && industry && pattern && interactions.name && interactions.gifUrl && interactions.videoUrl && interactions.urlSlug && interactions.mediaSource){
+    if(appName && industry && pattern && interactions.name && interactions.gifUrl && interactions.videoUrl && interactions.iconUrl && interactions.mediaSource){
       setpageState('Update')
       openModal()
     //   addInteraction()
@@ -171,15 +171,15 @@ const customStyles = {
         <div className='col-12'>
         <h2 style={{fontWeight:700}}>Edit Interaction</h2>
           <div style={{display:'flex',alignItems:'center', flexWrap:'wrap'}}>
-            <input style={{border:'2px solid grey', borderRadius:'8px',margin:'4px'}} onChange={onChangeHander} type="text" className="form__input" name="name" placeholder="video name" value={interactions.name} required="" />
-            <input style={{border:'2px solid grey', borderRadius:'8px',margin:'4px'}} onChange={onChangeHander} type="text" className="form__input" name="mediaSource" placeholder="Media Source" value={interactions.mediaSource} required="" />
+            <input style={{border:'2px solid grey', borderRadius:'8px',margin:'4px'}} onChange={onChangeHander} type="text" className="form__input" name="name" placeholder="video name" value={interactions?.name} required="" />
+            <input style={{border:'2px solid grey', borderRadius:'8px',margin:'4px'}} onChange={onChangeHander} type="text" className="form__input" name="mediaSource" placeholder="Media Source" value={interactions?.mediaSource} required="" />
           </div>
           <div style={{display:'flex',alignItems:'center', flexWrap:'wrap'}}>
-            <input style={{border:'2px solid grey', borderRadius:'8px',margin:'4px',}} onChange={onChangeHander} type="text" className="form__input" name="videoUrl" placeholder="video Url" value={interactions.videoUrl} required="" />
-            <input style={{border:'2px solid grey', borderRadius:'8px',margin:'4px',}} onChange={onChangeHander} type="text" className="form__input" name="gifUrl" placeholder="gif Url" value={interactions.gifUrl} required="" />
+            <input style={{border:'2px solid grey', borderRadius:'8px',margin:'4px',}} onChange={onChangeHander} type="text" className="form__input" name="videoUrl" placeholder="video Url" value={interactions?.videoUrl} required="" />
+            <input style={{border:'2px solid grey', borderRadius:'8px',margin:'4px',}} onChange={onChangeHander} type="text" className="form__input" name="gifUrl" placeholder="gif Url" value={interactions?.gifUrl} required="" />
           </div>
           <div>
-            <input style={{border:'2px solid grey', borderRadius:'8px',margin:'4px'}} onChange={onChangeHander} type="text" className="form__input" name="urlSlug" placeholder="url Slug" value={interactions.urlSlug} required="" />
+            <input style={{border:'2px solid grey', borderRadius:'8px',margin:'4px'}} onChange={onChangeHander} type="text" className="form__input" name="iconUrl" placeholder="Icon Url" value={interactions?.iconUrl} required="" />
             <br/>
             <h5 style={{fontWeight:700, marginTop:'5px'}}>Content (Optional)</h5>
             <textarea style={{border:'2px solid grey', borderRadius:'8px', margin:'5px', width:'90%'}} rows={3} onChange={onChangeHander} value={interactions.content} className="form__input" name="content" placeholder="describe...." required="" />

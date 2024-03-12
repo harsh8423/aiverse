@@ -21,12 +21,15 @@ export default function Interactions() {
   const [morePattern, setmorePattern] = useState([])
   const [moreAppname, setmoreAppname] = useState([])
   const [interactions, setinteractions] = useState([])
+  const [newstatus, setnewstatus] = useState(false)
   const [video, setvideo] = useState(null)
   const cdnURL='https://d3wqbogi93pb3.cloudfront.net/';
   let navigate = useNavigate();
   
   
   const getInteraction = async(id)=>{
+
+
     
     const response = await fetch("https://aiverse-backend.vercel.app/api/getAll", {
       method: "POST",
@@ -83,11 +86,30 @@ export default function Interactions() {
   }, [interactions,video])
 
 
+useEffect(() => {
+  function isUploadDate() {
+    const uploadDateObj = new Date(video?.uploadDate);
+    const currentDate = new Date();
+    const differenceInMs = currentDate - uploadDateObj;
+    const differenceInDays = differenceInMs / (1000 * 60 * 60 * 24);
+    if(differenceInDays <= 7){
+      setnewstatus(true)
+    }
+  }
+  isUploadDate()
+}, [video])
+
+
   return (
     <div className='container-fluid' style={{textAlign:'left'}}>
       {interactions && video && <div className='row p-4'>
         <div className='col-12 p-3 text-center' style={{backgroundColor:'#faf6ff', border:'1px solid lightgrey',borderRadius:'12px'}}>
-          <div style={{fontWeight:545}}>{video.pattern} AI-UX Interaction &nbsp;<span style={{color:'grey'}}>from&nbsp;</span> <span style={{fontWeight:700, fontSize:'18px'}}>{video.appName}</span><span style={{color:'grey', fontSize:'14px', float:'right'}}>Captured on {uploadDate}</span>
+          <div style={{fontWeight:545}}>{video.pattern} AI-UX Interaction &nbsp;<span style={{color:'grey'}}>from&nbsp;</span><span><img src={`${cdnURL}${video.iconUrl}`} style={{borderRadius:'8px',marginRight:'7px'}} width={25} height={25}/>
+
+          </span>
+            <span style={{fontWeight:700, fontSize:'18px'}}>{video.appName}</span>
+          {newstatus? <small style={{marginLeft:'5px',borderRadius:'20px', padding:'4px 6px', backgroundColor:'#7FBC7B', color:'white',fontWeight:'bold', fontSize:'8px', position:'absolute', top:'2%'}}>NEW</small>:video.status=="updated"? <small style={{marginLeft:'5px',borderRadius:'20px', padding:'4px 6px', backgroundColor:'#7FBC7B', color:'white',fontWeight:'bold', fontSize:'8px', position:'absolute', top:'2%'}}>UPDATED</small>:''}
+            <span style={{color:'grey', fontSize:'14px', float:'right'}}>Captured on {uploadDate}</span>
           <hr/></div>
           <div>
             
@@ -130,7 +152,12 @@ export default function Interactions() {
                   <DisplayMedia url={`${cdnURL}${item.gifUrl}`}/>
                 </div>
                 <div style={{fontWeight:550, fontSize:'13px', display:'flex', justifyContent:'space-between', margin:'4px 10px'}}>
-                  <span style={{color:'rgb(99, 99, 99)'}}>{item.name}</span><span style={{color:'rgb(166, 166, 166)'}}>{item.pattern}</span>
+                <div style={{display:'flex', justifyContent:'center',alignItems:'center'}}>
+                          <span><img src={`${cdnURL}${item.iconUrl}`} style={{margin:'2px',marginRight:'7px'}} width={15} height={15}/></span>
+                          <span style={{ color: "rgb(99, 99, 99)" }}>
+                            {item.name}
+                          </span>
+                          </div><span style={{color:'rgb(166, 166, 166)'}}>{item.pattern}</span>
                 </div>
               </div>
             )
@@ -149,7 +176,12 @@ export default function Interactions() {
                   <DisplayMedia url={`${cdnURL}${item.gifUrl}`}/>
                 </div>
                 <div style={{fontWeight:550, fontSize:'13px', display:'flex', justifyContent:'space-between', margin:'4px 10px'}}>
-                  <span style={{color:'rgb(99, 99, 99)'}}>{item.name}</span><span style={{color:'rgb(166, 166, 166)'}}>{item.pattern}</span>
+                <div style={{display:'flex', justifyContent:'center',alignItems:'center'}}>
+                          <span><img src={`${cdnURL}${item.iconUrl}`} style={{margin:'2px',marginRight:'7px'}} width={15} height={15}/></span>
+                          <span style={{ color: "rgb(99, 99, 99)" }}>
+                            {item.name}
+                          </span>
+                          </div><span style={{color:'rgb(166, 166, 166)'}}>{item.pattern}</span>
                 </div>
               </div>
             )
