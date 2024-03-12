@@ -83,7 +83,7 @@ export default function EditInteraction(props) {
     const deleteInteraction = async()=>{
         
         setspinner(true)
-        const response = await fetch(`http://localhost:5000/api/deleteInteraction/${interactions._id}`, {
+        const response = await fetch(`https://aiverse-backend.vercel.app/api/deleteInteraction/${interactions._id}`, {
           method: "DELETE",
           headers: {
             "Content-Type": "application/json",

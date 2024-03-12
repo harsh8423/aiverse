@@ -48,7 +48,7 @@ export default function AddInteraction(props) {
       
       const addInteraction = async()=>{
         
-        const response = await fetch("http://localhost:5000/api/addInteraction", {
+        const response = await fetch("https://aiverse-backend.vercel.app/api/addInteraction", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
