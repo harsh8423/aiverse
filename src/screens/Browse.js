@@ -476,7 +476,7 @@ export default function Browse(props, { changeBackgroundColor }) {
                       {appName.map((item) => {
                         return (
                           <div
-                            className="p-2"
+                            className="p-2 hhh"
                             style={{
                               display: "inline",
                               justifyContent: "center",
@@ -546,7 +546,7 @@ export default function Browse(props, { changeBackgroundColor }) {
                       {pattern.map((item) => {
                         return (
                           <div
-                            className="p-2"
+                            className="p-2 hhh"
                             style={{
                               display: "inline",
                               justifyContent: "center",
@@ -615,7 +615,7 @@ export default function Browse(props, { changeBackgroundColor }) {
                       {industry.map((item) => {
                         return (
                           <div
-                            className="p-2"
+                            className="p-2 hhh"
                             style={{
                               display: "inline",
                               cursor: "pointer",
