@@ -1,6 +1,5 @@
 import React,{useState} from 'react'
 import { toast, Toaster } from "react-hot-toast";
-import { Bars } from 'react-loader-spinner'
 
 import cardaz from "../images/cardaz.webp"
 import stl1 from "../images/stl1.webp"
@@ -103,23 +102,8 @@ export default function SpeakTheLanguage() {
                 <strong>subscribe to the Voyager</strong> 
           </p>
           <div className='mb-4' style={{width:'auto'}}>
-          {spinner? (
-                               <Bars
-                               height="50"
-                               width="80"
-                               color="#A884DB"
-                               ariaLabel="bars-loading"
-                               wrapperStyle={{}}
-                               wrapperClass=""
-                               visible={true}
-                               /> 
-                            ):(
-                        <div className="form__group" style={{display:'flex',justifyContent:'left',alignItems:'center'}}>
-                            <label htmlFor="email" className="form__label"></label>
-                            <input type="text" className="form__input" onChange={(e)=>{setemail(e.target.value)}} name='email' value={email} placeholder="Enter your Email" required="" />
-                                <span onClick={submitEmail} style={{fontSize:'22px', padding:'5px 20px', color:'white', backgroundColor:'black', cursor:'pointer'}}>Don't wanna miss</span>
-                        </div>
-                            )}
+          <iframe src="https://embeds.beehiiv.com/a3e9c954-5128-4d3d-9b41-ac9567390374?slim=true" data-test-id="beehiiv-embed" width="450px" height="52" frameBorder="0"  style={{zIndex:10, margin: '0px', borderRadius: '0px', backgroundColor: "transparent"}}></iframe>
+
           </div>
 
           <div style={{position:'absolute', backgroundColor:'white', zIndex:10, borderRadius:'500px', padding:'100px', top:-40, right:-40, bottom:-40}}>

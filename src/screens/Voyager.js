@@ -59,25 +59,8 @@ export default function Voyager(){
                             </h1>
                         </div>
                     </div>
-                    <div className='col-12 mt-3' style={{display:'flex',justifyContent:'center',alignItems:'center',}}>
-
-                            {spinner? (
-                               <Bars
-                               height="50"
-                               width="80"
-                               color="#A884DB"
-                               ariaLabel="bars-loading"
-                               wrapperStyle={{}}
-                               wrapperClass=""
-                               visible={true}
-                               /> 
-                            ):(
-                        <div className="form__group" style={{display:'flex',justifyContent:'space-around',alignItems:'center', border:'2px solid black'}}>
-                            <label htmlFor="email" className="form__label"></label>
-                            <input type="text" className="form__input" onChange={(e)=>{setemail(e.target.value)}} name='email' value={email} placeholder="Enter your Email" required="" />
-                                <span onClick={submitEmail} style={{fontSize:'22px', padding:'5px 20px', color:'white', backgroundColor:'black', cursor:'pointer'}}>Don't wanna miss</span>
-                        </div>
-                            )}
+                    <div className='col-12 mt-3' style={{display:'flex',justifyContent:'center',alignItems:'center'}}>
+                        <iframe src="https://embeds.beehiiv.com/a3e9c954-5128-4d3d-9b41-ac9567390374?slim=true" data-test-id="beehiiv-embed" width="450px" height="52" frameBorder="0"  style={{zIndex:10, margin: '0px', borderRadius: '0px', backgroundColor: "transparent"}}></iframe>
                     </div>
                     <div className='col-12 mt-3' style={{fontSize:'1.2vmax'}}>
                         <a style={{color:'black', textDecoration:'underline'}} href='https://voyager.beehiiv.com/p/altitudes-of-ai'>(Latest Issue) Altitudes of AI-UX? {">"}</a><br/>

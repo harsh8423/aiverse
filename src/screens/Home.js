@@ -1,7 +1,8 @@
 import React, { useState,useEffect, useContext,useRef } from 'react'
 import { useNavigate, useParams} from "react-router-dom";
-import {ContextApi} from "../components.js/ContextApi";
+import {ContextApi,AdminContext} from "../components.js/ContextApi";
 import { toast, Toaster } from "react-hot-toast";
+import { Bars } from 'react-loader-spinner'
 
 import Footer from '../components.js/Footer'
 import Browse from './Browse';
@@ -12,6 +13,8 @@ import ContextAdmin from '../components.js/ContestAdmin';
 export default function Home() {
     
     const a = useContext(ContextApi);
+    const b = useContext(AdminContext);
+
     
     let navigate = useNavigate();
     const [interactions, setinteractions] = useState([])
@@ -65,7 +68,7 @@ export default function Home() {
       const addcontext=(admin)=>{
         return(<ContextAdmin Admin={admin}/>)
       }
-      const [Admin, setAdmin] = useState(null)
+      const [Admin, setAdmin] = useState(b?.admin)
       const getData = async()=>{
             
         const response = await fetch("https://aiverse-backend.vercel.app/api/getAdmin", {
@@ -104,6 +107,7 @@ export default function Home() {
   return (
     <>
     <div className='grad'></div>
+    {/* <iframe src="https://embeds.beehiiv.com/a3e9c954-5128-4d3d-9b41-ac9567390374?slim=true" data-test-id="beehiiv-embed" width="90%" height="52" frameBorder="0"  style={{zIndex:10, margin: '0px', borderRadius: '0px', backgroundColor: "transparent"}}></iframe> */}
     <div className='container'>
     <Toaster toastOptions={{ duration: 2000 }} />
         <div className='row'>
@@ -176,7 +180,27 @@ export default function Home() {
         <div className='row'>
             <div className='col-12'>
                 <div className='containerx'>
-                    {Admin &&<Browse industry={Admin.industry} pattern={Admin.pattern} appName={Admin.appName} />}
+                    {
+                        !Admin? (
+                            <div className='text-center' style={{display:'flex', width:'100%', justifyContent:'center', alignItems:'center', flexDirection:'column'}}>
+
+                                <span>
+                                <Bars
+                            height="100"
+                            width="100"
+                            color="#A884DB"
+                            ariaLabel="bars-loading"
+                            wrapperStyle={{}}
+                            wrapperClass=""
+                            visible={true}
+                            />
+                                </span>
+                            </div>
+                            )
+                            :(
+                                <Browse industry={Admin.industry} pattern={Admin.pattern} appName={Admin.appName} />
+                            )
+                    }
                 </div>
                 <div  style={{display:'flex',justifyContent:'center', alignItems:'center', flexDirection:'column'}}>
                     <div className='mt-2' onClick={()=>{navigate('../Browse', {state:Admin});window.scrollTo(0, 0)}} style={{borderRadius:'12px', boxShadow:'0 1px 20px -6px #a884db)', backgroundColor:'#a884db', color:'white', padding:'6px 28px', fontWeight:700, fontSize:'18px', textDecoration:'none', cursor:'pointer'}}>Browse All {">"}</div>
