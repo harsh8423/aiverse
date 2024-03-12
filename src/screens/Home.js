@@ -51,8 +51,10 @@ export default function Home() {
         });
         const json = await response.json();
         if (json.success) {
-            setinteractions(json.data)
-            localStorage.setItem("interactions", JSON.stringify(json.data));
+            const itc = json.data
+            itc.reverse()
+            setinteractions(itc)
+            localStorage.setItem("interactions", JSON.stringify(itc));
             console.log(interactions);
         }
     
