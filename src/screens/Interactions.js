@@ -4,6 +4,7 @@ import {ContextApi} from "../components.js/ContextApi";
 import DisplayVideo from '../components.js/DisplayVideo';
 import DisplayMedia from '../components.js/DisplayMedia';
 import { toast, Toaster } from "react-hot-toast";
+import { Helmet } from 'react-helmet';
 
 // Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -15,7 +16,8 @@ import 'swiper/css/pagination';
 
 
 export default function Interactions() {
-
+  
+  const [defaultImageUrl, setdefaultImageUrl] = useState('https://d3wqbogi93pb3.cloudfront.net/images/homepage_metaData.png')
   const { id } = useParams();
   const [uploadDate, setuploadDate] = useState("")
   const [morePattern, setmorePattern] = useState([])
@@ -72,6 +74,10 @@ export default function Interactions() {
   }, []);
 
   useEffect(() => {
+
+    if(video?.images[0]){
+      setdefaultImageUrl('https://d3wqbogi93pb3.cloudfront.net/'+video.images[0])
+    }
     var dateObj = new Date(video?.uploadDate);
     var options = { year: 'numeric', month: 'short', day: 'numeric' };
     var formattedDate = dateObj.toLocaleDateString('en-US', options);
@@ -103,6 +109,20 @@ useEffect(() => {
   return (
     <div className='container-fluid' style={{textAlign:'left'}}>
       {interactions && video && <div className='row p-4'>
+
+      <Helmet>
+        <title>{video.name} - {video.pattern} AI-UX Interaction</title>
+        <meta name="description" content={video.content}/>
+        {/* <!-- Open Graph / Facebook --> */}
+        <meta property="og:title" content={`${video.name} - ${video.pattern} AI-UX Interaction`}/>
+        <meta property="og:description" content={video.content}/>
+        <meta property="og:image" content={defaultImageUrl}/>
+        {/* <!-- Twitter --> */}
+        <meta name="twitter:title" content={`${video.name} - ${video.pattern} AI-UX Interaction`}/>
+        <meta name="twitter:description" content={video.content}/>
+        <meta name="twitter:image" content={defaultImageUrl}/>
+
+      </Helmet>
         <div className='col-12 p-3 text-center' style={{backgroundColor:'#faf6ff', border:'1px solid lightgrey',borderRadius:'12px'}}>
           <div style={{fontWeight:545}}>{video.pattern} AI-UX Interaction &nbsp;<span style={{color:'grey'}}>from&nbsp;</span><span><img src={`${cdnURL}${video.iconUrl}`} style={{borderRadius:'8px',marginRight:'7px'}} width={25} height={25}/>
 

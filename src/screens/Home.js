@@ -3,6 +3,7 @@ import { useNavigate, useParams} from "react-router-dom";
 import {ContextApi,AdminContext} from "../components.js/ContextApi";
 import { toast, Toaster } from "react-hot-toast";
 import { Bars } from 'react-loader-spinner'
+import { Helmet } from 'react-helmet';
 
 import Footer from '../components.js/Footer'
 import Browse from './Browse';
@@ -95,18 +96,24 @@ export default function Home() {
         getData()
       }, [])
 
-      const [scrollOff, setScrollOff] = useState(false);
-
-      const handleScrollOff = () => {
-        setScrollOff(true);
-      };
-
-      const [selected, setSelected] = useState([]);
 
       
   return (
     <>
     <div className='grad'></div>
+    <Helmet>
+    <title>AIverse for Designers</title>
+    <meta name="description" content="Upskilling as a designer to design for AI and augment with AI. The future is near, the journey through the AI universe has begun, don't miss out!"/>
+    {/* <!-- Open Graph / Facebook --> */}
+    <meta property="og:title" content="AIverse for Designers"/>
+    <meta property="og:description" content="Upskilling as a designer to design for AI and augment with AI. The future is near, the journey through the AI universe has begun, don't miss out!"/>
+    <meta property="og:image" content="https://d3wqbogi93pb3.cloudfront.net/images/homepage_metaData.png"/>
+    {/* <!-- Twitter --> */}
+    <meta name="twitter:title" content="AIverse for Designers"/>
+    <meta name="twitter:description" content="Upskilling as a designer to design for AI and augment with AI. The future is near, the journey through the AI universe has begun, don't miss out!"/>
+    <meta name="twitter:image" content="https://d3wqbogi93pb3.cloudfront.net/images/homepage_metaData.png"/>
+
+      </Helmet>
     {/* <iframe src="https://embeds.beehiiv.com/a3e9c954-5128-4d3d-9b41-ac9567390374?slim=true" data-test-id="beehiiv-embed" width="90%" height="52" frameBorder="0"  style={{zIndex:10, margin: '0px', borderRadius: '0px', backgroundColor: "transparent"}}></iframe> */}
     <div className='container'>
     <Toaster toastOptions={{ duration: 2000 }} />
@@ -160,7 +167,7 @@ export default function Home() {
                                     <span className='m-3'><img style={{filter: 'grayscale(100%)'}} width={90} height={50} src='https://framerusercontent.com/images/IV77MhrItS3CPdUHUvJpVoW8Zx0.png?scale-down-to=2048' alt='.'/></span>
                                     <span className='m-3'><img style={{filter: 'grayscale(100%)'}} width={90} height={20} src='https://framerusercontent.com/images/jlxVQ8fBIZaMlGVT68N3sA4jk.png?scale-down-to=1024' alt='.'/></span>
                                     <span className='m-3'><img style={{filter: 'grayscale(100%)'}} width={90} height={20} src='https://framerusercontent.com/images/OajRFQhOaWAsElVarIfrW6qWdjo.png?scale-down-to=512' alt='.'/></span>
-                                    <span className='m-3'><img style={{filter: 'grayscale(100%)'}} width={90} height={50} src='https://framerusercontent.com/images/buZs8ZPFXFkLepJ3YBzk4NQAw0.png' alt='.'/></span>
+                                    <span className='m-3'><img style={{filter: 'grayscale(100%)'}} width={90} height={40} src='https://framerusercontent.com/images/buZs8ZPFXFkLepJ3YBzk4NQAw0.png' alt='.'/></span>
                                     <span className='m-3'><img style={{filter: 'grayscale(100%)'}} width={90} height={40} src='https://framerusercontent.com/images/t8G7CNhQoMsBPqmbs6zyFMyyd54.png?scale-down-to=1024' alt='.'/></span>
                             </div>
                             <div className='logos-slide'>
@@ -169,7 +176,7 @@ export default function Home() {
                                     <span className='m-3'><img style={{filter: 'grayscale(100%)'}} width={90} height={50} src='https://framerusercontent.com/images/IV77MhrItS3CPdUHUvJpVoW8Zx0.png?scale-down-to=2048' alt='.'/></span>
                                     <span className='m-3'><img style={{filter: 'grayscale(100%)'}} width={90} height={20} src='https://framerusercontent.com/images/jlxVQ8fBIZaMlGVT68N3sA4jk.png?scale-down-to=1024' alt='.'/></span>
                                     <span className='m-3'><img style={{filter: 'grayscale(100%)'}} width={90} height={20} src='https://framerusercontent.com/images/OajRFQhOaWAsElVarIfrW6qWdjo.png?scale-down-to=512' alt='.'/></span>
-                                    <span className='m-3'><img style={{filter: 'grayscale(100%)'}} width={90} height={50} src='https://framerusercontent.com/images/buZs8ZPFXFkLepJ3YBzk4NQAw0.png' alt='.'/></span>
+                                    <span className='m-3'><img style={{filter: 'grayscale(100%)'}} width={90} height={40} src='https://framerusercontent.com/images/buZs8ZPFXFkLepJ3YBzk4NQAw0.png' alt='.'/></span>
                                     <span className='m-3'><img style={{filter: 'grayscale(100%)'}} width={90} height={40} src='https://framerusercontent.com/images/t8G7CNhQoMsBPqmbs6zyFMyyd54.png?scale-down-to=1024' alt='.'/></span>
                             </div>
                         </div>
@@ -182,7 +189,7 @@ export default function Home() {
                 <div className='containerx'>
                     {
                         !Admin? (
-                            <div className='text-center' style={{display:'flex', width:'100%', justifyContent:'center', alignItems:'center', flexDirection:'column'}}>
+                            <div className='text-center' style={{minHeight:'300px',display:'flex', width:'100%', justifyContent:'center', alignItems:'center', flexDirection:'column'}}>
 
                                 <span>
                                 <Bars

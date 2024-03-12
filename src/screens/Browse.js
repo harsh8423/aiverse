@@ -9,6 +9,8 @@ import Modal from "react-modal";
 import trash from "../images/trash.png";
 import cancelIcon from "../images/cancel.png";
 import { Bars } from "react-loader-spinner";
+import { Helmet } from 'react-helmet';
+
 
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -288,6 +290,12 @@ export default function Browse(props, { changeBackgroundColor }) {
 
     
   useEffect(() => {
+    if(video?.images[0]){
+      setdefaultImageUrl('https://d3wqbogi93pb3.cloudfront.net/'+video.images[0])
+    }else{
+      setdefaultImageUrl('https://d3wqbogi93pb3.cloudfront.net/images/homepage_metaData.png')
+    }
+    setmodalurl(true)
     function isUploadDate() {
       const uploadDateObj = new Date(video?.uploadDate);
       const currentDate = new Date();
@@ -308,14 +316,73 @@ export default function Browse(props, { changeBackgroundColor }) {
     const differenceInMs = currentDate - uploadDateObj;
     const differenceInDays = differenceInMs / (1000 * 60 * 60 * 24);
     return differenceInDays <= 7
-    
+    // https://main.dx9c8yaevt53o.amplifyapp.com/
   }
-  
+
+  const [modalurl, setmodalurl] = useState(false)
+  const [currentUrl, setCurrentUrl] = useState(window.location.href);
+  const [isBrowse, setisBrowse] = useState(false)
+  useEffect(() => {
+    if(window.location.href=="http://localhost:3000/Browse" || window.location.href=="https://main.dx9c8yaevt53o.amplifyapp.com/Browse"){
+      setisBrowse(true)
+    }
+
+  }, [currentUrl])
+
+
+  useEffect(() => {
+    const handleUrlChange = () => {
+      console.log(window.location.href)
+      const url = window.location.href;
+      if(url=="http://localhost:3000/" || url=="https://main.dx9c8yaevt53o.amplifyapp.com/"){
+        setmodalurl(false)
+        setIsOpen(false)
+      }
+      
+      setCurrentUrl(window.location.href);
+    };
+
+    // Add event listener for URL changes
+    window.addEventListener('popstate', handleUrlChange);
+
+    // Clean up the event listener when the component unmounts
+    return () => {
+      window.removeEventListener('popstate', handleUrlChange);
+    };
+  }, [currentUrl]);
+
+  const [defaultImageUrl, setdefaultImageUrl] = useState('https://d3wqbogi93pb3.cloudfront.net/images/homepage_metaData.png')
 
 
 
   return (
     <div className="container-fluid containerxyz" style={{ minHeight: 300 }}>
+      {isBrowse&&<Helmet>
+        <title>AIverse Library - Browse AI-UX Interactions</title>
+        <meta name="description" content="The largest library of the latest AI-UX Interactions and Patterns! What are the big companies like Microsoft doing in AI and Design? What do I need to become an AI Designer? What is AI-UX? What is UX of AI? Get all your questions answered."/>
+        {/* <!-- Open Graph / Facebook --> */}
+        <meta property="og:title" content="AIverse Library - Browse AI-UX Interactions"/>
+        <meta property="og:description" content="The largest library of the latest AI-UX Interactions and Patterns! What are the big companies like Microsoft doing in AI and Design? What do I need to become an AI Designer? What is AI-UX? What is UX of AI? Get all your questions answered."/>
+        <meta property="og:image" content="https://d3wqbogi93pb3.cloudfront.net/images/homepage_metaData.png"/>
+        {/* <!-- Twitter --> */}
+        <meta name="twitter:title" content="AIverse Library - Browse AI-UX Interactions"/>
+        <meta name="twitter:description" content="The largest library of the latest AI-UX Interactions and Patterns! What are the big companies like Microsoft doing in AI and Design? What do I need to become an AI Designer? What is AI-UX? What is UX of AI? Get all your questions answered."/>
+        <meta name="twitter:image" content="https://d3wqbogi93pb3.cloudfront.net/images/homepage_metaData.png"/>
+      </Helmet>}
+
+      {modalurl && video && <Helmet>
+        <title>{video?.name} - {video?.pattern} AI-UX Interaction</title>
+        <meta name="description" content={video?.content}/>
+        {/* <!-- Open Graph / Facebook --> */}
+        <meta property="og:title" content={`${video?.name} - ${video?.pattern} AI-UX Interaction`}/>
+        <meta property="og:description" content={video.content}/>
+        <meta property="og:image" content={defaultImageUrl}/>
+        {/* <!-- Twitter --> */}
+        <meta name="twitter:title" content={`${video.name} - ${video.pattern} AI-UX Interaction`}/>
+        <meta name="twitter:description" content={video.content}/>
+        <meta name="twitter:image" content={defaultImageUrl}/>
+
+      </Helmet>}
       {/* <div style={{height:'100vh', position:'absolute',backgroundColor:BackgroundColor}}></div> */}
       {!interactions ? (
         <Bars
