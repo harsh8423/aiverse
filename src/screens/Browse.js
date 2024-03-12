@@ -338,6 +338,10 @@ export default function Browse(props, { changeBackgroundColor }) {
         setmodalurl(false)
         setIsOpen(false)
       }
+      if(url=="http://localhost:3000/Browse" || url=="https://main.dx9c8yaevt53o.amplifyapp.com/Browse"){
+        setmodalurl(false)
+        setIsOpen(false)
+      }
       
       setCurrentUrl(window.location.href);
     };

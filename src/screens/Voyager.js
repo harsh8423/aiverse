@@ -85,7 +85,7 @@ export default function Voyager(){
                                     <span className='m-3'><img style={{filter: 'grayscale(100%)'}} width={90} height={50} src='https://framerusercontent.com/images/IV77MhrItS3CPdUHUvJpVoW8Zx0.png?scale-down-to=2048' alt='.'/></span>
                                     <span className='m-3'><img style={{filter: 'grayscale(100%)'}} width={90} height={20} src='https://framerusercontent.com/images/jlxVQ8fBIZaMlGVT68N3sA4jk.png?scale-down-to=1024' alt='.'/></span>
                                     <span className='m-3'><img style={{filter: 'grayscale(100%)'}} width={90} height={20} src='https://framerusercontent.com/images/OajRFQhOaWAsElVarIfrW6qWdjo.png?scale-down-to=512' alt='.'/></span>
-                                    <span className='m-3'><img style={{filter: 'grayscale(100%)'}} width={90} height={40} src='https://framerusercontent.com/images/buZs8ZPFXFkLepJ3YBzk4NQAw0.png' alt='.'/></span>
+                                    <span className='m-3'><img style={{filter: 'grayscale(100%)'}} width={90} height={"auto"} src='https://framerusercontent.com/images/buZs8ZPFXFkLepJ3YBzk4NQAw0.png' alt='.'/></span>
                                     <span className='m-3'><img style={{filter: 'grayscale(100%)'}} width={90} height={40} src='https://framerusercontent.com/images/t8G7CNhQoMsBPqmbs6zyFMyyd54.png?scale-down-to=1024' alt='.'/></span>
                             </div>
                             <div className='logos-slide'>
@@ -94,7 +94,7 @@ export default function Voyager(){
                                     <span className='m-3'><img style={{filter: 'grayscale(100%)'}} width={90} height={50} src='https://framerusercontent.com/images/IV77MhrItS3CPdUHUvJpVoW8Zx0.png?scale-down-to=2048' alt='.'/></span>
                                     <span className='m-3'><img style={{filter: 'grayscale(100%)'}} width={90} height={20} src='https://framerusercontent.com/images/jlxVQ8fBIZaMlGVT68N3sA4jk.png?scale-down-to=1024' alt='.'/></span>
                                     <span className='m-3'><img style={{filter: 'grayscale(100%)'}} width={90} height={20} src='https://framerusercontent.com/images/OajRFQhOaWAsElVarIfrW6qWdjo.png?scale-down-to=512' alt='.'/></span>
-                                    <span className='m-3'><img style={{filter: 'grayscale(100%)'}} width={90} height={40} src='https://framerusercontent.com/images/buZs8ZPFXFkLepJ3YBzk4NQAw0.png' alt='.'/></span>
+                                    <span className='m-3'><img style={{filter: 'grayscale(100%)'}} width={90} height={"auto"} src='https://framerusercontent.com/images/buZs8ZPFXFkLepJ3YBzk4NQAw0.png' alt='.'/></span>
                                     <span className='m-3'><img style={{filter: 'grayscale(100%)'}} width={90} height={40} src='https://framerusercontent.com/images/t8G7CNhQoMsBPqmbs6zyFMyyd54.png?scale-down-to=1024' alt='.'/></span>
                             </div>
                         </div>
