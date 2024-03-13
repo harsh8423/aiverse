@@ -785,7 +785,7 @@ export default function Browse(props) {
                   slidesPerView={isMobile? 1:1.3}
                   spaceBetween={30}
                   centeredSlides={true}
-                  navigation={true}
+                  navigation={isMobile? false:true}
                   // pagination={true}
                   mousewheel={true}
                   // keyboard={true}
