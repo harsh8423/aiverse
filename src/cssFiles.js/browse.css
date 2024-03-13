@@ -30,9 +30,9 @@
 /* Mobile devices (up to 767px) */
   @media only screen and (max-width: 767px) {
     /* Add styles for mobile devices here */
-    .sticky-div{
+    .filterx{
         overflow: auto;
-        width: 400px;
+        width: 520px;
     }
     .searc1{
         width: 400px;
@@ -51,7 +51,7 @@
   @media only screen and (max-width: 476px) {
     /* Add styles for mobile devices here */
     .searc1{
-        width: 80vw;
+        width: 90vw;
     }
   }
 

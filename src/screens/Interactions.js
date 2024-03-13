@@ -111,6 +111,7 @@ export default function Interactions() {
   }, [video]);
 
   function closeModal() {
+   
     window.history.back();
   }
   return (

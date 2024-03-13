@@ -658,7 +658,7 @@ export default function Browse(props) {
                   const status=isUploadDate(item?.uploadDate)
                   return (
                     <div
-                      className="col-12 col-sm-6 col-xxl-3 col-lg-4 p-3 shover"
+                      className={`col-12 col-sm-6 col-xxl-3 col-lg-4 ${isMobile? 'pt-4':'p-3'} shover`}
                       onClick={() => {
                         opentab(index);
                       }}
@@ -710,9 +710,9 @@ export default function Browse(props) {
       >
         {video && (
           <div className="container-fluid" style={{ textAlign: "left" }}>
-            <div className="row">
+            <div className="row g-0">
               <div
-                className="col-12 p-3 text-center"
+                className="col-12 g-0 py-0 my-0 p-3 text-center"
                 style={{
                   backgroundColor: "#faf6ff",
                   border: "1px solid lightgrey",
@@ -750,6 +750,11 @@ export default function Browse(props) {
                   <hr />
                 </div>
 
+
+
+
+
+
                 <div className="head2" style={{ fontWeight: 545, textAlign:'left', margin:'0px 40px' }}>
                   <div style={{fontSize:'12px'}}>
                     {video.pattern} AI-UX Interaction &nbsp;
@@ -780,12 +785,12 @@ export default function Browse(props) {
                   slidesPerView={isMobile? 1:1.3}
                   spaceBetween={30}
                   centeredSlides={true}
-                  navigation={isMobile? false:true}
+                  navigation={true}
                   // pagination={true}
                   mousewheel={true}
                   // keyboard={true}
                   modules={[Navigation, Pagination, Mousewheel, Keyboard]}
-                  className="mySwiper"
+                  className="mySwiper swip"
                 >
                   <SwiperSlide>
                     <div style={{ maxHeight: "" }}>
@@ -806,7 +811,7 @@ export default function Browse(props) {
                   })}
                 </Swiper>
                 <div 
-                  className="p-2 head1"
+                  className="p-2 g-0 head1"
                   style={{ fontWeight: 545, textAlign: "left" }}
                 >
                   {video.name}

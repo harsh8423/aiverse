@@ -310,10 +310,10 @@ export default function Home() {
         id="browse"
         ref={browse}
         className="container-fluid"
-        style={{ width: "94vw" }}
+        style={{ width: "95vw" }}
       >
         <div className="row">
-          <div className="col-12">
+          {/* <div className="col-12"> */}
             <div className="containerx">
               {!Admin ? (
                 <div className="text-center browsecomp">
@@ -375,7 +375,7 @@ export default function Home() {
                 </div>
               </a>
             </div>
-          </div>
+          {/* </div> */}
         </div>
       </div>
       {/* <div style={{backgroundColor:'black'}}> */}
