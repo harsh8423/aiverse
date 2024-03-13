@@ -1,0 +1,143 @@
+/* Laptop devices (992px to 1199px) */
+.quete {
+    padding: 100px 200px;
+    font-size: 36px;
+    color: white;
+}
+.writerX{
+    font-size: 22px;
+}
+.flexp {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.custom-box {
+    border-radius: 12px;
+    background-color: #fdca41;
+    font-weight: bold;
+    width: 70px;
+    color: #a884db;
+}
+.minig {
+    font-weight: 700;
+    font-size: 3.6vmax;
+    color: white;
+}
+.last {
+    font-size: 1.2vmax;
+    color: rgb(171, 171, 171);
+}
+.flexp2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.cont {
+    background: url(
+        'https://framerusercontent.com/images/S7riAWks37BqmTaoWotazdmnJ8I.png');
+        width: 250px;
+        height: 250px;
+        background-size: cover;
+    }
+    .cardbox {
+        width: 250px;
+        text-align: left;
+        line-height: 1.3;
+    }
+    .linex {
+        font-size: 24px;
+        color: white;
+        font-weight: 500;
+    }
+    
+    .subliney {
+        color: rgb(110, 110, 110);
+        font-weight: 400;
+    }
+    
+    .liney {
+        font-size: 24px;
+        color: rgb(122, 122, 122);
+        font-weight: 500;
+    }
+    
+    .subcard {
+        height: 250px;
+        width: 250px;
+        border-radius: 20px;
+        background-color: #262626;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+    .subscrib {
+        background-color: #f6f0ff;
+        font-weight: 700;
+        padding: 6px 10px;
+        border-radius: 8px;
+        cursor: pointer;
+        /* width: 60vw; */
+    }
+    .bonus1 {
+        border-radius: 12px;
+        background-color: #fdca41;
+        font-weight: bold;
+        width: 50px;
+        color: #a884db;
+        font-size: 10px;
+    }   
+    .curious {
+        font-size: 1.2vmax;
+        color: rgb(171, 171, 171);
+    }   
+    /* Mobile devices (up to 767px) */
+    @media only screen and (max-width: 767px) {
+
+        .quete{
+            padding: 20px 40px;
+            font-size: 2vmax;
+        }
+        .minig{
+            font-size: 4.8vmax;
+        }
+        .subscrib{
+
+            display: block;
+            font-weight: 500;
+            font-size: 12px;
+        }
+        /* Add styles for mobile devices here */
+      }
+      
+      /* Tablet devices (768px to 991px) */
+      @media only screen and (min-width: 768px) and (max-width: 991px) {
+        .quete{
+            
+            padding: 20px 120px;
+        }
+        .minig{
+            font-size: 4.5vmax;
+        }
+        /* Add styles for tablet devices here */
+      }
+      
+    
+    
+    
+    @media only screen and (min-width: 992px) and (max-width: 1699px) {
+        
+        /* Add styles for laptop devices here */
+    }
+    
+    
+    
+    
+    
+    /* Desktop devices (1200px and above) */
+    /* @media only screen and (min-width: 1200px) { */
+        /* Add styles for desktop devices here */
+        /* } */
+        

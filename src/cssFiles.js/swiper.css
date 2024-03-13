@@ -1,0 +1,55 @@
+.swiper-button-next,
+.swiper-button-prev {
+  background-color: rgb(79, 77, 77,0.5);
+  border-radius: 100%;
+  padding: 25px 25px;
+  color: rgb(255, 255, 255);
+  
+}
+.swiper-button-next::after,
+.swiper-button-prev::after {
+  border-radius: 100%;
+  font-size: 15px;
+  color: rgb(255, 255, 255);
+  
+}
+
+
+.swiper-button-next:hover,
+.swiper-button-prev:hover {
+  background-color: rgb(36, 36, 36,0.8);
+  
+}
+
+/* Mobile devices (up to 767px) */
+  @media only screen and (max-width: 900px) {
+
+    .swiper-button-next,
+.swiper-button-prev {
+  /* background-color: rgb(79, 77, 77,0.5); */
+  border-radius: 40%;
+  margin: 0px;
+  font-size: 10px;
+  padding: 0px 0px;
+  color: white;
+  
+}
+.swiper-button-next::after,
+.swiper-button-prev::after {
+  border-radius: 40%;
+  font-size: 5px;
+  color: white;
+}
+
+
+.swiper-button-next:hover,
+.swiper-button-prev:hover {
+  background-color: rgb(36, 36, 36,0.8);
+  
+}
+}
+
+/* Add styles for mobile devices here */
+
+  
+

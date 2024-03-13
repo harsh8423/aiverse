@@ -1,0 +1,126 @@
+@keyframes slide {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-100%);
+    }
+  }
+  
+  .logos {
+    overflow: hidden;
+    padding: 10px 0;
+    background: white;
+    white-space: nowrap;
+    position: relative;
+  }
+  
+  .logos:before,
+  .logos:after {
+    position: absolute;
+    top: 0;
+    width: 250px;
+    height: 100%;
+    content: "";
+    z-index: 2;
+  }
+  
+  /* .logos:before {
+    left: 0;
+    background: linear-gradient(to left, rgba(255, 255, 255, 0), white);
+  }
+  
+  .logos:after {
+    right: 0;
+    background: linear-gradient(to right, rgba(255, 255, 255, 0), white);
+  } */
+  .logos-slide {
+    display: inline-block;
+    animation: 20s slide infinite linear;
+  }
+
+
+
+  .xxx{
+    width: 800px;
+    overflow: hidden;
+    mask-image: linear-gradient(to right, rgba(0, 0, 0, 0) 0%, rgb(0, 0, 0) 12.5%, rgb(0, 0, 0) 87.5%, rgba(0, 0, 0, 0) 100%);
+  }
+
+
+
+  /* Mobile devices (up to 767px) */
+  @media only screen and (max-width: 767px) {
+    .xxx{
+        width: 80vw;
+    }
+    /* Add styles for mobile devices here */
+  }
+  
+  /* Tablet devices (768px to 991px) */
+  @media only screen and (min-width: 768px) and (max-width: 991px) {
+    /* Add styles for tablet devices here */
+  }
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  /* Mobile devices (up to 767px) */
+@media only screen and (max-width: 767px) {
+    /* Add styles for mobile devices here */
+  }
+  
+  /* Tablet devices (768px to 991px) */
+  @media only screen and (min-width: 768px) and (max-width: 991px) {
+    /* Add styles for tablet devices here */
+  }
+  
+  /* Laptop devices (992px to 1199px) */
+  @media only screen and (min-width: 992px) and (max-width: 1199px) {
+    /* Add styles for laptop devices here */
+  }
+  
+  /* Desktop devices (1200px and above) */
+  @media only screen and (min-width: 1200px) {
+    /* Add styles for desktop devices here */
+  }
+  

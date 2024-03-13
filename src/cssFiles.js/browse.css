@@ -1,0 +1,72 @@
+
+.sticky-div {
+    text-align: left;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    background-color: #ffffff;
+    padding: 10px;
+    width: 100%;
+    flex-wrap: wrap;
+    z-index: 2; /* Adjust the z-index as needed */
+  }
+
+  .head2{
+      display: none;
+    }
+    .head1{
+    display: block;
+}
+
+.searc{
+    margin: 0px 20px 10px 0px;
+}
+.searc1{
+    width: 400px;
+}
+
+/* Mobile devices (up to 767px) */
+  @media only screen and (max-width: 767px) {
+    /* Add styles for mobile devices here */
+    .sticky-div{
+        overflow: auto;
+        width: 400px;
+    }
+    .searc1{
+        width: 400px;
+    }
+    .fonts{
+        font-size: 2vmax;
+    }
+    .head2{
+        display: block;
+    }
+    .head1{
+        display: none;
+    }
+  }
+  
+  @media only screen and (max-width: 476px) {
+    /* Add styles for mobile devices here */
+    .searc1{
+        width: 80vw;
+    }
+  }
+
+  /* Tablet devices (768px to 991px) */
+  @media only screen and (min-width: 768px) and (max-width: 991px) {
+    /* Add styles for tablet devices here */
+    
+  }
+  
+  /* Laptop devices (992px to 1199px) */
+  @media only screen and (min-width: 992px) and (max-width: 1199px) {
+    /* Add styles for laptop devices here */
+  }
+  
+  /* Desktop devices (1200px and above)
+  @media only screen and (min-width: 1200px) {
+    /* Add styles for desktop devices here */
+  /* } */ 

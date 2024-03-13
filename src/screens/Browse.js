@@ -11,6 +11,8 @@ import cancelIcon from "../images/cancel.png";
 import { Bars } from "react-loader-spinner";
 import { Helmet } from 'react-helmet';
 
+import "../cssFiles.js/browse.css"
+import "../cssFiles.js/swiper.css"
 
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -20,7 +22,9 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 
-export default function Browse(props, { changeBackgroundColor }) {
+export default function Browse(props) {
+
+  const isMobile = window.innerWidth <= 700;
   const [uploadDate, setuploadDate] = useState("");
   const [morePattern, setmorePattern] = useState([]);
   const [moreAppname, setmoreAppname] = useState([]);
@@ -400,7 +404,7 @@ export default function Browse(props, { changeBackgroundColor }) {
         />
       ) : (
         <div className="row" style={{ backgroundColor: BackgroundColor }}>
-          <div className="col-12" style={{ textAlign: "left" }}>
+          <div className="col-12 mt-5" style={{ textAlign: "left" }}>
             <span style={{ fontWeight: 700, fontSize: "28px" }}>
               Browse &nbsp;
             </span>{" "}
@@ -411,21 +415,14 @@ export default function Browse(props, { changeBackgroundColor }) {
           </div>
           {!modalIsOpen && (
             <div
-              className="col-12 mt-2 sticky-div"
-              style={{
-                textAlign: "left",
-                display: "flex",
-                justifyContent: "left",
-                alignItems: "center",
-              }}
-            >
-              <div
+              className="col-12 mt-2 sticky-div">
+              <div className="filterx"
                 style={{
                   textAlign: "left",
                   display: "flex",
                   justifyContent: "space-around",
                   alignItems: "center",
-                  margin: "0 20px 0 0",
+                  margin: "0 20px 10px 0px",
                 }}
               >
                 <div style={{ margin: "0 10px 0 0" }}>
@@ -647,7 +644,7 @@ export default function Browse(props, { changeBackgroundColor }) {
                   </div>
                 )}
               </div>
-              <span>
+              <span className="searc">
                 <Searchbox />
               </span>
             </div>
@@ -661,7 +658,7 @@ export default function Browse(props, { changeBackgroundColor }) {
                   const status=isUploadDate(item?.uploadDate)
                   return (
                     <div
-                      className="col-4 p-3 shover"
+                      className="col-12 col-sm-6 col-xxl-3 col-lg-4 p-3 shover"
                       onClick={() => {
                         opentab(index);
                       }}
@@ -732,15 +729,18 @@ export default function Browse(props, { changeBackgroundColor }) {
                     height={24}
                   />
                 </div>
-                <div style={{ fontWeight: 545, }}>
-                  {video.pattern} AI-UX Interaction &nbsp;
-                  <span style={{ color: "grey" }}>from&nbsp;</span>{" "}
+                <div className="head1" style={{ fontWeight: 545, }}>
+                  <span >
+                    {video.pattern} AI-UX Interaction &nbsp;
+                    <span style={{ color: "grey" }}>from&nbsp;</span>{" "}
+                  </span>
 
-                  <span><img src={`${cdnURL}${video.iconUrl}`} style={{borderRadius:'8px',marginRight:'7px'}} width={25} height={25}/></span>
+                  <span><img src={`${cdnURL}${video.iconUrl}`} style={{borderRadius:'8px',marginRight:'7px'}} width={25} height={25}/>
                   <span style={{ fontWeight: 700, fontSize: "18px" }}>
                     {video.appName}
                   </span>
-                  {newstatus? <small style={{marginLeft:'5px',borderRadius:'20px', padding:'4px 6px', backgroundColor:'#7FBC7B', color:'white',fontWeight:'bold', fontSize:'8px', position:'absolute', top:'2%'}}>NEW</small>:video.status=="updated"? <small style={{marginLeft:'5px',borderRadius:'20px', padding:'4px 6px', backgroundColor:'#7FBC7B', color:'white',fontWeight:'bold', fontSize:'8px', position:'absolute', top:'2%'}}>UPDATED</small>:''}
+                  </span>
+                  {newstatus? <small className="head3" style={{marginLeft:'5px',borderRadius:'20px', padding:'4px 6px', backgroundColor:'#7FBC7B', color:'white',fontWeight:'bold', fontSize:'8px', position:'absolute', top:'2%'}}>NEW</small>:video.status=="updated"? <small style={{marginLeft:'5px',borderRadius:'20px', padding:'4px 6px', backgroundColor:'#7FBC7B', color:'white',fontWeight:'bold', fontSize:'8px', position:'absolute', top:'2%'}}>UPDATED</small>:''}
 
                   <span
                     style={{ color: "grey", fontSize: "14px", float: "right" }}
@@ -749,13 +749,38 @@ export default function Browse(props, { changeBackgroundColor }) {
                   </span>
                   <hr />
                 </div>
+
+                <div className="head2" style={{ fontWeight: 545, textAlign:'left', margin:'0px 40px' }}>
+                  <div style={{fontSize:'12px'}}>
+                    {video.pattern} AI-UX Interaction &nbsp;
+                    <span style={{ color: "grey" }}>from&nbsp;</span>{" "}
+                  </div>
+
+                  <div style={{fontSize:'14px'}}>
+                    <img src={`${cdnURL}${video.iconUrl}`} style={{borderRadius:'8px',marginRight:'7px'}} width={25} height={25}/>
+                    <span style={{ fontWeight: 700, }}>
+                      {video.appName}
+                    </span>
+                  {/* {newstatus? <small className="head3" style={{marginLeft:'5px',borderRadius:'20px', padding:'3px 3px', backgroundColor:'#7FBC7B', color:'white',fontWeight:'bold', fontSize:'5px'}}>NEW</small>:video.status=="updated"? <small style={{marginLeft:'5px',borderRadius:'20px', padding:'4px 6px', backgroundColor:'#7FBC7B', color:'white',fontWeight:'bold', fontSize:'8px', position:'absolute', top:'2%'}}>UPDATED</small>:''} */}
+                  </div>
+
+                  <div
+                    style={{ color: "grey", fontSize: "10px" }}
+                  >
+                    Captured on {uploadDate}
+                  </div>
+                  <hr />
+                </div>
+
+
+
                 <div></div>
                 <Swiper
                   cssMode={true}
-                  slidesPerView={1.3}
+                  slidesPerView={isMobile? 1:1.3}
                   spaceBetween={30}
                   centeredSlides={true}
-                  // navigation={true}
+                  navigation={isMobile? false:true}
                   // pagination={true}
                   mousewheel={true}
                   // keyboard={true}
@@ -780,9 +805,20 @@ export default function Browse(props, { changeBackgroundColor }) {
                     );
                   })}
                 </Swiper>
-                <div
-                  className="p-2"
+                <div 
+                  className="p-2 head1"
                   style={{ fontWeight: 545, textAlign: "left" }}
+                >
+                  {video.name}
+                  <span>&nbsp;- {video.content}</span>
+                  <br />
+                  <small style={{ color: "grey", fontWeight: "bolder" }}>
+                    Media source: {video.mediaSource}
+                  </small>
+                </div>
+                <div
+                  className="p-2 head2"
+                  style={{ fontWeight: 545, textAlign: "left",fontSize:'12px' }}
                 >
                   {video.name}
                   <span>&nbsp;- {video.content}</span>
@@ -796,7 +832,7 @@ export default function Browse(props, { changeBackgroundColor }) {
                 <div className="row">
                   {moreAppname && (
                     <div className="col-12 mt-5">
-                      <h3>
+                      <h3 className="fonts">
                         More{" "}
                         <span style={{ fontWeight: 700 }}>
                           {video.appName}{" "}
@@ -809,7 +845,7 @@ export default function Browse(props, { changeBackgroundColor }) {
                     moreAppname.map((item, index) => {
                       return (
                         <div
-                          className="col-4 p-3 shover"
+                          className="col-12 col-sm-6 col-xxl-3 col-lg-4 p-3 shover"
                           onClick={() => {
                             findvideo(item);
                           }}
@@ -846,8 +882,8 @@ export default function Browse(props, { changeBackgroundColor }) {
               <div className="container-fluid">
                 <div className="row">
                   {morePattern && (
-                    <div className="col-12 mt-5">
-                      <h3>
+                    <div className="col-12 mt-5 fonts">
+                      <h3 className="fonts">
                         More{" "}
                         <span style={{ fontWeight: 700 }}>
                           {video.pattern}{" "}
@@ -860,7 +896,7 @@ export default function Browse(props, { changeBackgroundColor }) {
                     morePattern.map((item, index) => {
                       return (
                         <div
-                          className="col-4 p-3 shover"
+                          className="col-12 col-sm-6 col-xxl-3 col-lg-4 p-3 shover"
                           onClick={() => {
                             findvideo(item);
                           }}

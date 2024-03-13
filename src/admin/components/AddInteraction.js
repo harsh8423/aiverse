@@ -130,23 +130,29 @@ export default function AddInteraction(props) {
         </div>
         <div className='col-12'>
             <h5 style={{fontWeight:700, marginTop:'20px'}}>App Name</h5>
+                <div style={{display:'flex', flexWrap:'wrap', maxHeight:'300px', overflow:'auto'}}>
                 {appNamex.map((item,index)=>{
                     return(
                         <span onClick={()=>{setappName(item)}} key={index} className={`hovered ${appName===item ? 'clicked' : '' }`}style={{cursor:'pointer',fontSize:'22px', border:'2px solid grey', padding:'5px 20px', borderRadius:'8px', margin:'5px'}}>{item}</span>
                     )
                 })}
+                </div>
             <h5 style={{fontWeight:700, marginTop:'20px'}}>Industry</h5>
+            <div style={{display:'flex', flexWrap:'wrap', maxHeight:'300px', overflow:'auto'}}>
             {industryx.map((item, index)=>{
                     return(
                         <span onClick={()=>{setindustry(item)}} key={index} className={`hovered ${industry===item ? 'clicked' : ''}`} style={{cursor:'pointer',fontSize:'22px', border:'2px solid grey', padding:'5px 20px', borderRadius:'8px', margin:'5px'}}>{item}</span>
                     )
                 })}
+            </div>
             <h5 style={{fontWeight:700, marginTop:'20px'}}>Pattern</h5>
+            <div style={{display:'flex', flexWrap:'wrap', maxHeight:'300px', overflow:'auto'}}>
             {patternx.map((item, index)=>{
                     return(
                         <span onClick={()=>{setpattern(item)}} key={index} className={`hovered ${pattern===item ? 'clicked' : ''}`} style={{cursor:'pointer',fontSize:'22px', border:'2px solid grey', padding:'5px 20px', borderRadius:'8px', margin:'5px'}}>{item}</span>
                     )
                 })}
+            </div>
         </div>
         <div className='col-12'>
           <br/>

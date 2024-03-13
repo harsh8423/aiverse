@@ -1,0 +1,129 @@
+
+/* @media only screen and (min-width: 1168px) and (max-width: 1699px) { */
+    .topheading{
+        font-weight: bold;
+        color: #A884DB;
+        font-size: 20px;
+    }
+    .flexq{
+        height: 80vh;
+
+    }
+    .flexp{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+    .uweekly {
+        border: 1px solid #fdca41;
+        border-radius: 30px;
+        padding: 6px 20px;
+        background-color: #fccb4230;
+        color: rgb(153, 120, 37);
+        font-weight: 700;
+        font-size: 12px;
+        font-family: sans-serif;
+    }
+    .lLlibrary{
+        font-weight: 700;
+        font-size: 4.3vmax;
+    }
+    
+    .part2 {
+        font-weight: 400;
+        font-size: 2.1vmax;
+        color: rgb(171, 171, 171);
+    }
+    
+    .outterpart {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+    }
+    .browseb {
+        border-radius: 12px;
+        box-shadow: 0 1px 20px -6px #a884db;
+        background-color: #a884db;
+        color: white;
+        padding: 6px 28px;
+        font-weight: 700;
+        font-size: 18px;
+        text-decoration: none;
+        cursor: pointer;
+    }
+    .outerb {
+        border-radius: 12px;
+        box-shadow: 0 1px 20px -6px #f6f0ff;
+        background-color: #f6f0ff;
+        text-decoration: none;
+        padding: 6px 28px;
+        position: relative;
+        margin-left: 10px;
+        cursor: pointer;
+    }
+    .AIxDesignerb {
+        color: #a884db;
+        font-weight: 300;
+        font-size: 18px;
+    }
+    
+    .bonus {
+        transform: rotate(-12deg);
+        border-radius: 12px;
+        background-color: #fdca41;
+        top: -7px;
+        left: -3px;
+        font-weight: bold;
+        width: 50px;
+        position: absolute;
+        color: #a884db;
+        font-size: 10px;
+    }
+    .curious {
+        font-size: 20px;
+        color: rgb(171, 171, 171);
+    }
+    
+    .browsecomp {
+        min-height: 300px;
+        display: flex;
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+    .stayupd {
+        color: #a884db;
+        font-weight: 300;
+        font-size: 18px;
+    }     
+    /* } */
+    
+    
+    @media only screen and (max-width: 767px) {
+        .topheading,.curious{
+            font-size: 12px;
+        }
+        
+        /* Add styles for mobile devices here */
+      }
+      
+      /* Tablet devices (768px to 991px) */
+      @media only screen and (min-width: 768px) and (max-width: 1167px) {
+        .topheading.curious{
+            font-size: 16px;
+        }  
+    }
+    
+    
+
+
+
+    
+    /* Desktop devices (1200px and above)
+    @media only screen and (min-width: 1400px) {
+        /* Add styles for desktop devices here */
+        /* } */
+        

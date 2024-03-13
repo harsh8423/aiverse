@@ -188,23 +188,29 @@ const customStyles = {
         </div>
         <div className='col-12'>
             <h5 style={{fontWeight:700, marginTop:'20px'}}>App Name</h5>
+                <div style={{display:'flex', flexWrap:'wrap', maxHeight:'300px', overflow:'auto'}}>
                 {appNamex?.map((item,index)=>{
                     return(
                         <span onClick={()=>{setappName(item)}} key={index} className={`hovered ${appName===item ? 'clicked' : '' }`}style={{cursor:'pointer',fontSize:'22px', border:'2px solid grey', padding:'5px 20px', borderRadius:'8px', margin:'5px'}}>{item}</span>
                         )
                     })}
+                </div>
             <h5 style={{fontWeight:700, marginTop:'20px'}}>Industry</h5>
-            {industryx?.map((item, index)=>{
+            <div style={{display:'flex', flexWrap:'wrap', maxHeight:'300px', overflow:'auto'}}>
+              {industryx?.map((item, index)=>{
                 return(
                     <span onClick={()=>{setindustry(item)}} key={index} className={`hovered ${industry===item ? 'clicked' : ''}`} style={{cursor:'pointer',fontSize:'22px', border:'2px solid grey', padding:'5px 20px', borderRadius:'8px', margin:'5px'}}>{item}</span>
                     )
                 })}
+              </div>
             <h5 style={{fontWeight:700, marginTop:'20px'}}>Pattern</h5>
+            <div style={{display:'flex', flexWrap:'wrap', maxHeight:'300px', overflow:'auto'}}>
             {patternx?.map((item, index)=>{
                 return(
                     <span onClick={()=>{setpattern(item)}} key={index} className={`hovered ${pattern===item ? 'clicked' : ''}`} style={{cursor:'pointer',fontSize:'22px', border:'2px solid grey', padding:'5px 20px', borderRadius:'8px', margin:'5px'}}>{item}</span>
                     )
                 })}
+            </div>
         </div>
         <div className='col-12'>
           <br/>
@@ -218,7 +224,7 @@ const customStyles = {
               )
             })}
             <div style={{display:'flex',alignItems:'center', flexWrap:'wrap'}}>
-              <input style={{border:'2px solid grey', borderRadius:'8px', margin:'5px'}} onChange={(event)=>{setimg(event.target.value)}} type="text" className="form__input" name="urlSlug" placeholder="image url" value={img} required="" />
+              <input style={{border:'2px solid grey', borderRadius:'8px', margin:'5px'}} onChange={(event)=>{setimg(event.target.value)}} type="text" className="form__input" name="" placeholder="image url" value={img} required="" />
               <span onClick={addImg} style={{fontSize:'22px', padding:'3px 8px', color:'white', backgroundColor:'grey', cursor:'pointer',borderRadius:'8px'}}>Add</span>
             </div>
         </div>

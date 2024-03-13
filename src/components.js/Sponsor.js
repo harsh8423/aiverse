@@ -79,7 +79,7 @@ export default function Sponsor() {
             <ul>
               <li>
                 <p>A spot on the AI-UX gallery</p>
-                <img src={spons} width={600} height={400}/>
+                <img src={spons} width={'80%'} height={"auto"}/>
               </li>
             </ul>
           </p>

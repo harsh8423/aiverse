@@ -12,7 +12,6 @@ export default function Responses(props) {
 
   const a = useContext(AdminContext);
 
-    const [emailResponse, setemailResponse] = useState(a.admin.emailResponse)
     const [submitResponse, setsubmitResponse] = useState(a.admin.submitResponse)
     const [sponsorResponse, setsponsorResponse] = useState(a.admin.sponsorResponse)
     const [modalIsOpen, setIsOpen] = React.useState(false);
@@ -49,7 +48,6 @@ export default function Responses(props) {
         setspinner(false)
         if (json.success) {
           addcontext(json.updatedAdmin)
-          setemailResponse(json.updatedAdmin.emailResponse)
           setsponsorResponse(json.updatedAdmin.sponsorResponse)
           setsubmitResponse(json.updatedAdmin.submitResponse)
           localStorage.setItem("admin", JSON.stringify(json.updatedAdmin)); 
@@ -90,22 +88,10 @@ export default function Responses(props) {
         <Toaster toastOptions={{ duration: 2000 }} />
       <div className='row'>
         <div className='col-12 mt-4' style={{display:'flex', alignItems:'center'}}>
-            <div onClick={()=>{setpageState('email')}} style={{cursor:'pointer',padding:'3px 10px',borderRadius:'12px', boxShadow:'0 1px 20px -6px #f6f0ff)', backgroundColor:'#f6f0ff', color:'#a884db', fontWeight:300, fontSize:'16px', margin:'0px 5px'}}>Email Response</div>
             <div onClick={()=>{setpageState('submit')}} style={{cursor:'pointer',padding:'3px 10px',borderRadius:'12px', boxShadow:'0 1px 20px -6px #f6f0ff)', backgroundColor:'#f6f0ff', color:'#a884db', fontWeight:300, fontSize:'16px', margin:'0px 5px'}}>Submit Response</div>
             <div onClick={()=>{setpageState('sponsor')}} style={{cursor:'pointer',padding:'3px 10px',borderRadius:'12px', boxShadow:'0 1px 20px -6px #f6f0ff)', backgroundColor:'#f6f0ff', color:'#a884db', fontWeight:300, fontSize:'16px', margin:'0px 5px'}}>Sponsor Response</div>
         </div>
-        {pageState==='email' && <div className='col-12'>
-            <div className='container-fluid mt-3'>
-                <div className='row'>
-                {emailResponse?.map((item)=>{
-                    let date = getdate(`${item.dateStamp}`)
-                return(
-                    <div className='normal-box col-3 p-3 m-2'><span style={{float:'right'}}><img onClick={()=>{openModal(item)}} style={{cursor:'pointer'}} src={trash} width={18} height={18}/></span><span style={{color:'skyblue',fontWeight:'bold'}}>{item.email}</span><br/><small style={{fontWeight:700, color:'grey'}}>{date}</small></div>
-                )
-            })}
-                </div>
-            </div>
-        </div>}
+        
         {pageState==='submit' && <div className='col-12'>
         <div className='container-fluid mt-3'>
             <div className='row'>

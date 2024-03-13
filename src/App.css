@@ -38,19 +38,11 @@ background: linear-gradient(180deg, rgba(139,167,32,0) 0%, rgba(255,255,255,1) 1
 
 
 
-.xxx{
-  mask-image: linear-gradient(to right, rgba(0, 0, 0, 0) 0%, rgb(0, 0, 0) 12.5%, rgb(0, 0, 0) 87.5%, rgba(0, 0, 0, 0) 100%);
-}
 
 
 
-.cont {
-  background: url(
-    'https://framerusercontent.com/images/S7riAWks37BqmTaoWotazdmnJ8I.png');
-  width: 250px;
-  height: 250px;
-  background-size: cover;
-}
+
+
 
 
 .form__input {
@@ -90,14 +82,7 @@ background: linear-gradient(180deg, rgba(139,167,32,0) 0%, rgba(255,255,255,1) 1
   width: 100%;
 }
 
-.sticky-div {
-  position: sticky;
-  top: 0;
-  background-color: #ffffff;
-  padding: 10px;
-  width: 100%;
-  z-index: 2; /* Adjust the z-index as needed */
-}
+
 
 .content {
   /* Adjust margin-top to give space for the sticky div */
@@ -130,17 +115,6 @@ background: linear-gradient(180deg, rgba(139,167,32,0) 0%, rgba(255,255,255,1) 1
 }
 
 
-/* Hide the scrollbar by default */
-
-
-
-
-/* body{
-  background: radial-gradient(circle, transparent 25%, #ffffff  26%),linear-gradient(45deg, transparent 46%, #f9f9f9 47%, #f9f9f9 52%, transparent 53%), linear-gradient(135deg, transparent 46%, #f9f9f9 47%, #f9f9f9 52%, transparent 53%);
-  background-size: 2em 2em;
-  background-color: #ffffff;
-  opacity: 1
-} */
 
 
 
@@ -164,68 +138,9 @@ background: linear-gradient(180deg, rgba(139,167,32,0) 0%, rgba(255,255,255,1) 1
 
 
 
-  .swiper-button-next,
-          .swiper-button-prev {
-            background-color: rgb(79, 77, 77,0.5);
-            border-radius: 100%;
-            padding: 25px 25px;
-            color: white;
-            
-          }
-          .swiper-button-next::after,
-          .swiper-button-prev::after {
-            border-radius: 100%;
-            font-size: 15px;
-          }
 
 
-          .swiper-button-next:hover,
-          .swiper-button-prev:hover {
-            background-color: rgb(36, 36, 36,0.8);
-            
-          }
 
-
-          @keyframes slide {
-            from {
-              transform: translateX(0);
-            }
-            to {
-              transform: translateX(-100%);
-            }
-          }
-          
-          .logos {
-            overflow: hidden;
-            padding: 10px 0;
-            background: white;
-            white-space: nowrap;
-            position: relative;
-          }
-          
-          .logos:before,
-          .logos:after {
-            position: absolute;
-            top: 0;
-            width: 250px;
-            height: 100%;
-            content: "";
-            z-index: 2;
-          }
-          
-          /* .logos:before {
-            left: 0;
-            background: linear-gradient(to left, rgba(255, 255, 255, 0), white);
-          }
-          
-          .logos:after {
-            right: 0;
-            background: linear-gradient(to right, rgba(255, 255, 255, 0), white);
-          } */
-          .logos-slide {
-            display: inline-block;
-            animation: 20s slide infinite linear;
-          }
 
 
 

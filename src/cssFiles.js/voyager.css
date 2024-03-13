@@ -1,0 +1,68 @@
+
+
+
+.outbox {
+    padding: 80px 200px 0px 200px;
+    font-size: 36px;
+}
+.wait {
+    font-size: 30px;
+    color: rgb(171, 171, 171);
+}
+.waitn {
+    font-weight: 700;
+    font-size: 3.6vmax;
+}
+
+.flexp {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+
+
+/* Mobile devices (up to 767px) */
+@media only screen and (max-width: 767px) {
+    
+    .outbox{
+      padding: 60px 20px 0px 20px;
+      font-size: 16px;
+    }
+    .mail{
+        width: auto;
+    }
+    .waitn {
+        font-weight: 700;
+        font-size: 3vmax;
+    }
+    .wait{
+        font-size: 16px;
+    }
+    .topheading,.curious{
+        font-size: 12px;
+    }
+}
+
+@media only screen and (max-width: 336px) {
+    .mail{
+        width: 95%;
+    }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+    .outbox{
+        padding: 60px 60px 0px 60px;
+        font-size: 28px;
+    }
+}
+
+@media only screen and (min-width: 992px) and (max-width: 1699px) {
+}
+
+
+/* Desktop devices (1200px and above) */
+/* @media only screen and (min-width: 1200px) { */
+    /* Add styles for desktop devices here */
+    /* } */
