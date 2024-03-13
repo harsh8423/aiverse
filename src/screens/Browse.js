@@ -658,15 +658,15 @@ export default function Browse(props) {
                   const status=isUploadDate(item?.uploadDate)
                   return (
                     <div
-                      className={`col-12 col-sm-6 col-xxl-3 col-lg-4 ${isMobile? 'pt-4':'p-3'} shover`}
+                      className={`col-12 col-sm-6 g-0 col-xxl-3 col-lg-4 ${isMobile? 'pt-4':'p-3'} shover`}
                       onClick={() => {
                         opentab(index);
                       }}
-                      style={{ cursor: "pointer" }}
+                      style={{ cursor: "pointer", paddingLeft:'0px', paddingRight:'0px' }}
                       key={index}
                     >
                       <div className="mt-1">
-                      {status? <small style={{marginLeft:'5px',borderRadius:'20px', padding:'4px 6px', backgroundColor:'#7FBC7B', color:'white',fontWeight:'bold', fontSize:'8px', position:'absolute', top:'9%', right:'5%'}}>NEW</small>:item.status=="updated"? <small style={{marginLeft:'5px',borderRadius:'20px', padding:'4px 6px', backgroundColor:'#7FBC7B', color:'white',fontWeight:'bold', fontSize:'8px', position:'absolute', top:'10%', right:'5%'}}>UPDATED</small>:''}
+                      {status? <small style={{marginLeft:'5px',borderRadius:'20px', padding:'4px 6px', backgroundColor:'#7FBC7B', color:'white',fontWeight:'bold', fontSize:'8px', position:'absolute', top:'12%', right:'5%'}}>NEW</small>:item.status=="updated"? <small style={{marginLeft:'5px',borderRadius:'20px', padding:'4px 6px', backgroundColor:'#7FBC7B', color:'white',fontWeight:'bold', fontSize:'8px', position:'absolute', top:'12%', right:'5%'}}>UPDATED</small>:''}
 
                         <DisplayMedia url={`${cdnURL}${item.gifUrl}`} />
                       </div>
