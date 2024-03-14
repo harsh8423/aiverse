@@ -545,7 +545,7 @@ export default function Browse(props) {
                       {pattern.map((item) => {
                         return (
                           <div
-                            className="p-2 hhh"
+                            className="hhh"
                             style={{
                               display: "block",
                               fontSize:'14px',
@@ -614,7 +614,7 @@ export default function Browse(props) {
                       {industry.map((item) => {
                         return (
                           <div
-                            className="p-2 hhh"
+                            className="hhh"
                             style={{
                               display: "block",
                               fontSize:'14px',

@@ -137,7 +137,7 @@ export default function Home() {
           <div className="col-12 mt-5 mb-5 topheading">
             Are you future ready? Welcome to the AI universe!
           </div>
-          <div className="col-12 mt-2 flexp flexq">
+          <div className="col-12 mt-2 flexpart flexq" style={{position:'relative'}}>
             <div className=" m-3 uweekly">UPDATED WEEKLY</div>
             <div>
               <h1 className="lLlibrary">
@@ -184,123 +184,125 @@ export default function Home() {
                 </div>
               </div>
             </div>
-            <div className="mt-5" style={{ color: "rgb(156, 156, 156)" }}>
-              <h2 className="curious">
-                <span>some curious minds following us are from</span>
-              </h2>
-            </div>
-            <div className="logos xxx">
-              <div className="logos-slide">
-                <span className="m-3">
-                  <img
-                    style={{ filter: "grayscale(100%)" }}
-                    width={90}
-                    height={"auto"}
-                    src="https://framerusercontent.com/images/c5JtGZyQtPE6LJ2fzel0nwnDXr8.png?scale-down-to=2048"
-                    alt="."
-                  />
-                </span>
-                <span className="m-3">
-                  <img
-                    style={{ filter: "grayscale(100%)" }}
-                    width={90}
-                    height={"auto"}
-                    src="https://framerusercontent.com/images/IV77MhrItS3CPdUHUvJpVoW8Zx0.png?scale-down-to=2048"
-                    alt="."
-                  />
-                </span>
-                <span className="m-3">
-                  <img
-                    style={{ filter: "grayscale(100%)" }}
-                    width={90}
-                    height={"auto"}
-                    src="https://framerusercontent.com/images/jlxVQ8fBIZaMlGVT68N3sA4jk.png?scale-down-to=1024"
-                    alt="."
-                  />
-                </span>
-                <span className="m-3">
-                  <img
-                    style={{ filter: "grayscale(100%)" }}
-                    width={90}
-                    height={"auto"}
-                    src="https://framerusercontent.com/images/OajRFQhOaWAsElVarIfrW6qWdjo.png?scale-down-to=512"
-                    alt="."
-                  />
-                </span>
-                <span className="m-3">
-                  <img
-                    style={{ filter: "grayscale(100%)" }}
-                    width={90}
-                    height={"auto"}
-                    src="https://framerusercontent.com/images/buZs8ZPFXFkLepJ3YBzk4NQAw0.png"
-                    alt="."
-                  />
-                </span>
-                <span className="m-3">
-                  <img
-                    style={{ filter: "grayscale(100%)" }}
-                    width={90}
-                    height={"auto"}
-                    src="https://framerusercontent.com/images/t8G7CNhQoMsBPqmbs6zyFMyyd54.png?scale-down-to=1024"
-                    alt="."
-                  />
-                </span>
+            <div style={{position:'absolute', bottom:'5px'}}>
+              <div className="mt-5" style={{ color: "rgb(156, 156, 156)" }}>
+                <h2 className="curious">
+                  <span>some curious minds following us are from</span>
+                </h2>
               </div>
-              <div className="logos-slide">
-                <span className="m-3">
-                  <img
-                    style={{ filter: "grayscale(100%)" }}
-                    width={90}
-                    height={"auto"}
-                    src="https://framerusercontent.com/images/c5JtGZyQtPE6LJ2fzel0nwnDXr8.png?scale-down-to=2048"
-                    alt="."
-                  />
-                </span>
-                <span className="m-3">
-                  <img
-                    style={{ filter: "grayscale(100%)" }}
-                    width={90}
-                    height={"auto"}
-                    src="https://framerusercontent.com/images/IV77MhrItS3CPdUHUvJpVoW8Zx0.png?scale-down-to=2048"
-                    alt="."
-                  />
-                </span>
-                <span className="m-3">
-                  <img
-                    style={{ filter: "grayscale(100%)" }}
-                    width={90}
-                    height={"auto"}
-                    src="https://framerusercontent.com/images/jlxVQ8fBIZaMlGVT68N3sA4jk.png?scale-down-to=1024"
-                    alt="."
-                  />
-                </span>
-                <span className="m-3">
-                  <img
-                    style={{ filter: "grayscale(100%)" }}
-                    width={90}
-                    height={"auto"}
-                    src="https://framerusercontent.com/images/OajRFQhOaWAsElVarIfrW6qWdjo.png?scale-down-to=512"
-                    alt="."
-                  />
-                </span>
-                <span className="m-3">
-                  <img
-                    style={{ filter: "grayscale(100%)" }}
-                    width={90}
-                    height={"auto"}
-                    src="https://framerusercontent.com/images/buZs8ZPFXFkLepJ3YBzk4NQAw0.png"
-                    alt="."
-                  />
-                </span>
-                <span className="m-3">
-                  <img
-                    style={{ filter: "grayscale(100%)" }}
-                    width={90}
-                    height={"auto"}
-                    src="https://framerusercontent.com/images/t8G7CNhQoMsBPqmbs6zyFMyyd54.png?scale-down-to=1024"
-                    alt="."
-                  />
-                </span>
+              <div className="logos xxx">
+                <div className="logos-slide">
+                  <span className="m-3">
+                    <img
+                      style={{ filter: "grayscale(100%)" }}
+                      width={90}
+                      height={"auto"}
+                      src="https://framerusercontent.com/images/c5JtGZyQtPE6LJ2fzel0nwnDXr8.png?scale-down-to=2048"
+                      alt="."
+                    />
+                  </span>
+                  <span className="m-3">
+                    <img
+                      style={{ filter: "grayscale(100%)" }}
+                      width={90}
+                      height={"auto"}
+                      src="https://framerusercontent.com/images/IV77MhrItS3CPdUHUvJpVoW8Zx0.png?scale-down-to=2048"
+                      alt="."
+                    />
+                  </span>
+                  <span className="m-3">
+                    <img
+                      style={{ filter: "grayscale(100%)" }}
+                      width={90}
+                      height={"auto"}
+                      src="https://framerusercontent.com/images/jlxVQ8fBIZaMlGVT68N3sA4jk.png?scale-down-to=1024"
+                      alt="."
+                    />
+                  </span>
+                  <span className="m-3">
+                    <img
+                      style={{ filter: "grayscale(100%)" }}
+                      width={90}
+                      height={"auto"}
+                      src="https://framerusercontent.com/images/OajRFQhOaWAsElVarIfrW6qWdjo.png?scale-down-to=512"
+                      alt="."
+                    />
+                  </span>
+                  <span className="m-3">
+                    <img
+                      style={{ filter: "grayscale(100%)" }}
+                      width={90}
+                      height={"auto"}
+                      src="https://framerusercontent.com/images/buZs8ZPFXFkLepJ3YBzk4NQAw0.png"
+                      alt="."
+                    />
+                  </span>
+                  <span className="m-3">
+                    <img
+                      style={{ filter: "grayscale(100%)" }}
+                      width={90}
+                      height={"auto"}
+                      src="https://framerusercontent.com/images/t8G7CNhQoMsBPqmbs6zyFMyyd54.png?scale-down-to=1024"
+                      alt="."
+                    />
+                  </span>
+                </div>
+                <div className="logos-slide">
+                  <span className="m-3">
+                    <img
+                      style={{ filter: "grayscale(100%)" }}
+                      width={90}
+                      height={"auto"}
+                      src="https://framerusercontent.com/images/c5JtGZyQtPE6LJ2fzel0nwnDXr8.png?scale-down-to=2048"
+                      alt="."
+                    />
+                  </span>
+                  <span className="m-3">
+                    <img
+                      style={{ filter: "grayscale(100%)" }}
+                      width={90}
+                      height={"auto"}
+                      src="https://framerusercontent.com/images/IV77MhrItS3CPdUHUvJpVoW8Zx0.png?scale-down-to=2048"
+                      alt="."
+                    />
+                  </span>
+                  <span className="m-3">
+                    <img
+                      style={{ filter: "grayscale(100%)" }}
+                      width={90}
+                      height={"auto"}
+                      src="https://framerusercontent.com/images/jlxVQ8fBIZaMlGVT68N3sA4jk.png?scale-down-to=1024"
+                      alt="."
+                    />
+                  </span>
+                  <span className="m-3">
+                    <img
+                      style={{ filter: "grayscale(100%)" }}
+                      width={90}
+                      height={"auto"}
+                      src="https://framerusercontent.com/images/OajRFQhOaWAsElVarIfrW6qWdjo.png?scale-down-to=512"
+                      alt="."
+                    />
+                  </span>
+                  <span className="m-3">
+                    <img
+                      style={{ filter: "grayscale(100%)" }}
+                      width={90}
+                      height={"auto"}
+                      src="https://framerusercontent.com/images/buZs8ZPFXFkLepJ3YBzk4NQAw0.png"
+                      alt="."
+                    />
+                  </span>
+                  <span className="m-3">
+                    <img
+                      style={{ filter: "grayscale(100%)" }}
+                      width={90}
+                      height={"auto"}
+                      src="https://framerusercontent.com/images/t8G7CNhQoMsBPqmbs6zyFMyyd54.png?scale-down-to=1024"
+                      alt="."
+                    />
+                  </span>
+                </div>
               </div>
             </div>
           </div>
@@ -314,32 +316,32 @@ export default function Home() {
       >
         <div className="row">
           {/* <div className="col-12"> */}
-            <div className="containerx">
-              {!Admin ? (
-                <div className="text-center browsecomp">
-                  <span>
-                    <Bars
-                      height="100"
-                      width="100"
-                      color="#A884DB"
-                      ariaLabel="bars-loading"
-                      wrapperStyle={{}}
-                      wrapperClass=""
-                      visible={true}
-                    />
-                  </span>
-                </div>
-              ) : (
-                <div style={{maxHeight:'1200px'}}>
-                  <Browse
-                    industry={Admin.industry}
-                    pattern={Admin.pattern}
-                    appName={Admin.appName}
+          <div className="containerx">
+            {!Admin ? (
+              <div className="text-center browsecomp">
+                <span>
+                  <Bars
+                    height="100"
+                    width="100"
+                    color="#A884DB"
+                    ariaLabel="bars-loading"
+                    wrapperStyle={{}}
+                    wrapperClass=""
+                    visible={true}
                   />
-                </div>
-              )}
-            </div>
-            <div style={{width:'100%'}}>
+                </span>
+              </div>
+            ) : (
+              <div style={{ maxHeight: "1200px" }}>
+                <Browse
+                  industry={Admin.industry}
+                  pattern={Admin.pattern}
+                  appName={Admin.appName}
+                />
+              </div>
+            )}
+          </div>
+          <div style={{ width: "100%" }}>
             <div className="flexp">
               <div
                 className="mt-2"

@@ -9,9 +9,13 @@
         height: 80vh;
 
     }
+    .flexpart{
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+    }
     .flexp{
         display: flex;
-        justify-content: center;
         align-items: center;
         flex-direction: column;
     }
