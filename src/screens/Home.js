@@ -330,11 +330,13 @@ export default function Home() {
                   </span>
                 </div>
               ) : (
-                <Browse
-                  industry={Admin.industry}
-                  pattern={Admin.pattern}
-                  appName={Admin.appName}
-                />
+                <div style={{maxHeight:'1200px'}}>
+                  <Browse
+                    industry={Admin.industry}
+                    pattern={Admin.pattern}
+                    appName={Admin.appName}
+                  />
+                </div>
               )}
             </div>
             <div style={{width:'100%'}}>
