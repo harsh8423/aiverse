@@ -421,7 +421,6 @@ export default function Browse(props) {
                   textAlign: "left",
                   display: "flex",
                   justifyContent: "space-around",
-                  alignItems: "center",
                   margin: "0 20px 10px 0px",
                 }}
               >
@@ -430,8 +429,8 @@ export default function Browse(props) {
                 </div>
                 {appName && (
                   <div
-                    className="dropdown"
-                    style={{ margin: "0 10px 0 0", cursor: "pointer" }}
+                    className="dropdown ddd"
+                    style={{ margin: "0 10px 0 0", cursor: "pointer", zIndex:10}}
                   >
                     <button
                       style={{
@@ -462,11 +461,10 @@ export default function Browse(props) {
                       style={{
                         maxHeight: "200px",
                         overflow: "auto",
-                        cursor: "pointer",
                       }}
                     >
                       <span
-                        style={{ cursor: "pointer", minWidth: "100px" }}
+                        style={{zIndex:20, cursor: "pointer", minWidth: "100px" }}
                         className="dropdown-item"
                         onClick={() => {
                           setselectedappName([]);
@@ -477,11 +475,11 @@ export default function Browse(props) {
                       {appName.map((item) => {
                         return (
                           <div
-                            className="p-2 hhh"
+                            className=" hhh"
                             style={{
-                              display: "inline",
-                              justifyContent: "center",
-                              alignItems: "center",
+                              display: "block",
+                              fontSize:'14px',
+                              marginLeft:'5px',
                               cursor: "pointer",
                             }}
                           >
@@ -506,7 +504,7 @@ export default function Browse(props) {
                   </div>
                 )}
                 {pattern && (
-                  <div className="dropdown" style={{ margin: "0 10px 0 0" }}>
+                  <div className="dropdown ddd" style={{ margin: "0 10px 0 0" }}>
                     <button
                       style={{
                         minWidth: "100px",
@@ -549,10 +547,10 @@ export default function Browse(props) {
                           <div
                             className="p-2 hhh"
                             style={{
-                              display: "inline",
-                              justifyContent: "center",
-                              cursor: "pointer",
-                              alignItems: "center",
+                              display: "block",
+                              fontSize:'14px',
+                              marginLeft:'5px',
+                              cursor:"pointer"
                             }}
                           >
                             <input
@@ -575,7 +573,7 @@ export default function Browse(props) {
                   </div>
                 )}
                 {industry && (
-                  <div className="dropdown" style={{ margin: "0 10px 0 0" }}>
+                  <div className="dropdown ddd" style={{ margin: "0 10px 0 0", }}>
                     <button
                       style={{
                         minWidth: "100px",
@@ -602,7 +600,7 @@ export default function Browse(props) {
                     <div
                       class="dropdown-menu"
                       aria-labelledby="dropdownMenuButton"
-                      style={{ maxHeight: "200px", overflow: "auto" }}
+                      style={{ maxHeight: "200px", overflow: "auto", position:'absolute' }}
                     >
                       <span
                         style={{ cursor: "pointer", minWidth: "100px" }}
@@ -618,10 +616,10 @@ export default function Browse(props) {
                           <div
                             className="p-2 hhh"
                             style={{
-                              display: "inline",
-                              cursor: "pointer",
-                              justifyContent: "center",
-                              alignItems: "center",
+                              display: "block",
+                              fontSize:'14px',
+                              marginLeft:'5px',
+                              cursor:"pointer"
                             }}
                           >
                             <input
@@ -712,8 +710,10 @@ export default function Browse(props) {
           <div className="container-fluid" style={{ textAlign: "left" }}>
             <div className="row g-0">
               <div
-                className="col-12 g-0 py-0 my-0 p-3 text-center"
+                className="col-12 g-0 pt-3 text-center"
                 style={{
+                  paddingLeft:'0px',
+                  paddingRight:'0px',
                   backgroundColor: "#faf6ff",
                   border: "1px solid lightgrey",
                   borderRadius: "12px",
@@ -721,8 +721,8 @@ export default function Browse(props) {
               >
                 <div>
                   <img
-                    className="scale"
-                    style={{ float: "left", cursor: "pointer" }}
+                    className="scale "
+                    style={{ float: "left", cursor: "pointer", marginLeft:'5px' }}
                     onClick={closeModal}
                     src={cancelIcon}
                     width={24}
@@ -743,7 +743,7 @@ export default function Browse(props) {
                   {newstatus? <small className="head3" style={{marginLeft:'5px',borderRadius:'20px', padding:'4px 6px', backgroundColor:'#7FBC7B', color:'white',fontWeight:'bold', fontSize:'8px', position:'absolute', top:'2%'}}>NEW</small>:video.status=="updated"? <small style={{marginLeft:'5px',borderRadius:'20px', padding:'4px 6px', backgroundColor:'#7FBC7B', color:'white',fontWeight:'bold', fontSize:'8px', position:'absolute', top:'2%'}}>UPDATED</small>:''}
 
                   <span
-                    style={{ color: "grey", fontSize: "14px", float: "right" }}
+                    style={{ color: "grey", fontSize: "14px", float: "right", marginRight:'10px' }}
                   >
                     Captured on {uploadDate}
                   </span>

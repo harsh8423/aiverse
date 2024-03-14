@@ -139,8 +139,10 @@ export default function Interactions() {
             <meta name="twitter:image" content={defaultImageUrl} />
           </Helmet>
           <div
-            className="col-12 p-3 text-center"
+            className="col-12 pt-3 text-center"
             style={{
+              paddingLeft:'0px',
+              paddingRight:'0px',
               backgroundColor: "#faf6ff",
               border: "1px solid lightgrey",
               borderRadius: "12px",
@@ -149,7 +151,7 @@ export default function Interactions() {
             <div>
                   <img
                     className="scale"
-                    style={{ float: "left", cursor: "pointer" }}
+                    style={{ float: "left", cursor: "pointer", marginLeft:'5px'  }}
                     onClick={closeModal}
                     src={cancelIcon}
                     width={24}
@@ -170,7 +172,7 @@ export default function Interactions() {
                   {newstatus? <small className="head3" style={{marginLeft:'5px',borderRadius:'20px', padding:'4px 6px', backgroundColor:'#7FBC7B', color:'white',fontWeight:'bold', fontSize:'8px', position:'absolute', top:'2%'}}>NEW</small>:video.status=="updated"? <small style={{marginLeft:'5px',borderRadius:'20px', padding:'4px 6px', backgroundColor:'#7FBC7B', color:'white',fontWeight:'bold', fontSize:'8px', position:'absolute', top:'2%'}}>UPDATED</small>:''}
 
                   <span
-                    style={{ color: "grey", fontSize: "14px", float: "right" }}
+                    style={{ color: "grey", fontSize: "14px", float: "right", marginRight:'10px' }}
                   >
                     Captured on {uploadDate}
                   </span>

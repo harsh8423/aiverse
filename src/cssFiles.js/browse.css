@@ -29,10 +29,14 @@
 
 /* Mobile devices (up to 767px) */
   @media only screen and (max-width: 767px) {
-    /* Add styles for mobile devices here */
+    
     .filterx{
-        overflow: auto;
-        width: 520px;
+      width: auto;
+      overflow-x: auto;
+    }
+
+    .ddd:hover{
+      height: 250px;
     }
     .searc1{
         width: 400px;
