@@ -59,9 +59,9 @@ export default function Submit() {
   return (
     <div className='container' style={{textAlign:'left'}}>
       <Toaster toastOptions={{ duration: 2000 }} />
-      <div className='row mt-5'>
+      <div className='row mt-5 p-4'>
       <div className='col-12'><img src={robot} width={100} height={100}/></div>
-        <div className='col-8 mt-5'>
+        <div className='col-12 col-md-8 mt-5'>
           <h1 style={{fontWeight:900}}>Submit to AIverse Gallery</h1>
           <p className='mt-5'>
            Got something that excites you? Something that feels magical? We would love to feature what you've worked on or found on the internet.<br/> <br/>
@@ -75,7 +75,7 @@ export default function Submit() {
           </h5>
           <hr/>
         </div>
-        <div className='col-8'>
+        <div className='col-12 col-md-8'>
           <p>Don't deprive us any longer.</p>
           <h5>
             <strong>Please describe your AI-UX interaction</strong>

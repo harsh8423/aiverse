@@ -337,6 +337,7 @@ export default function Home() {
                 />
               )}
             </div>
+            <div style={{width:'100%'}}>
             <div className="flexp">
               <div
                 className="mt-2"
@@ -375,7 +376,7 @@ export default function Home() {
                 </div>
               </a>
             </div>
-          {/* </div> */}
+          </div>
         </div>
       </div>
       {/* <div style={{backgroundColor:'black'}}> */}

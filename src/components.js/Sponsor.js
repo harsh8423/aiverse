@@ -57,9 +57,9 @@ export default function Sponsor() {
   return (
     <div className='container' style={{textAlign:'left'}}>
       <Toaster toastOptions={{ duration: 2000 }} />
-      <div className='row mt-5'>
+      <div className='row mt-5 p-4'>
         <div className='col-12'><img src={robot} width={100} height={100}/></div>
-        <div className='col-8 mt-5'>
+        <div className='col-12 col-md-8 mt-5'>
           <h1 style={{fontWeight:900}}>Sponsor the AIverse Gallery</h1>
           <p className='mt-5'>
             You must have seen our library of AI-UX interactions, the largest out there? We breathe and sleep AI and add new interactions every week! <br/> <br/>
@@ -86,7 +86,7 @@ export default function Sponsor() {
           <br/> <br/>
           <hr/>
         </div>
-        <div className='col-8'>
+        <div className='col-12 col-md-8'>
           <p>If you're keen, get in touch with us and we'll reach out to you really soon!</p>
           <h3>Your Info</h3>
           <input style={{border:'2px solid grey', borderRadius:'8px', margin:'5px'}} onChange={onChangeHander} value={credentials.name} type="text" className="form__input" name='name' placeholder="Name" required="" />
