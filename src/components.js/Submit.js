@@ -62,7 +62,7 @@ export default function Submit() {
       <div className='row mt-5 p-4'>
       <div className='col-12'><img src={robot} width={100} height={100}/></div>
         <div className='col-12 col-md-8 mt-5'>
-          <h1 style={{fontWeight:900}}>Submit to AIverse Gallery</h1>
+          <h1 style={{fontWeight:900, fontFamily:'Maven Pro', letterSpacing: '-0.02'}}>Submit to AIverse Gallery</h1>
           <p className='mt-5'>
            Got something that excites you? Something that feels magical? We would love to feature what you've worked on or found on the internet.<br/> <br/>
             Share them with the rest of the world through our largest library of AI-UX interactions. <br/> <br/>
@@ -70,26 +70,26 @@ export default function Submit() {
             We believe the AI hype wouldn't have existed if ChatGPT wasn't launched, but here's the thing, ChatGPT wouldn't have taken off if it wasn't "chatting". The chat interface, conversational UX, is only one type of AI-UX interaction. <br/> <br/>
             There's more coming. We're growing.  <br/> <br/>
           </p>
-          <h5>
+          <h4>
             <strong>Share your magical POV with the rest of us!</strong>
-          </h5>
+          </h4>
           <hr/>
         </div>
         <div className='col-12 col-md-8'>
-          <p>Don't deprive us any longer.</p>
-          <h5>
-            <strong>Please describe your AI-UX interaction</strong>
-          </h5>
-          <textarea style={{border:'2px solid grey', borderRadius:'8px', margin:'5px', width:'90%'}} rows={3} onChange={onChangeHander} value={credentials.desc} className="form__input" name="desc" placeholder="Something magical - what is it, where you found/created it, link to the interaction" required="" />
+          
+          <h6>
+           <strong>Please describe your AI-UX interaction</strong>
+          </h6>
+          <textarea style={{border:'1px solid lightgrey', borderRadius:'8px', margin:'5px', width:'90%'}} rows={3} onChange={onChangeHander} value={credentials.desc} className="form__input" name="desc" placeholder="Something magical - what is it, where you found/created it, link to the interaction" required="" />
           <br/>
-          <h5>
-            <strong>Any screenshots or recordings you'd like to add?</strong>
-          </h5>
-          <input style={{border:'2px solid grey', borderRadius:'8px', margin:'5px', width:'90%'}} value={credentials.url} onChange={onChangeHander} type="text" className="form__input" name="url" placeholder="Paste the URL or Google Drive link" required="" />
+          <h6>
+          <strong>Any screenshots or recordings you'd like to add?</strong>
+          </h6>
+          <input style={{border:'1px solid lightgrey', borderRadius:'8px', margin:'5px', width:'90%'}} value={credentials.url} onChange={onChangeHander} type="text" className="form__input" name="url" placeholder="Paste the URL or Google Drive link" required="" />
           <br/>
-          <h3>Your Info</h3>
-          <input style={{border:'2px solid grey', borderRadius:'8px', margin:'5px'}} onChange={onChangeHander} type="text" className="form__input" name="name" placeholder="Name" value={credentials.name} required="" />
-          <input style={{border:'2px solid grey', borderRadius:'8px', margin:'5px'}} onChange={onChangeHander} type="text" className="form__input" name='email' placeholder="Email address" value={credentials.email} required="" />
+          <h6><strong>Your Info</strong></h6>
+          <input style={{border:'1px solid lightgrey', borderRadius:'8px', margin:'5px'}} onChange={onChangeHander} type="text" className="form__input" name="name" placeholder="Name" value={credentials.name} required="" />
+          <input style={{border:'1px solid lightgrey', borderRadius:'8px', margin:'5px'}} onChange={onChangeHander} type="text" className="form__input" name='email' placeholder="Email address" value={credentials.email} required="" />
           <p>So we can notify you if your submission is accepted!</p>
           <br/>
           {spinner? (

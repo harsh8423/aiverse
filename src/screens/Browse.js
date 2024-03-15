@@ -405,8 +405,8 @@ export default function Browse(props) {
       ) : (
         <div className="row" style={{ backgroundColor: BackgroundColor }}>
           <div className="col-12 mt-5" style={{ textAlign: "left" }}>
-            <span style={{ fontWeight: 700, fontSize: "28px" }}>
-              Browse &nbsp;
+            <span style={{ fontWeight: 700, fontSize: "28px", fontFamily: 'Maven Pro' }}>
+              Browse&nbsp;
             </span>{" "}
             <span style={{ color: "rgb(156, 156, 156)", fontSize: "18px" }}>
               {" "}
@@ -421,7 +421,7 @@ export default function Browse(props) {
                   textAlign: "left",
                   display: "flex",
                   justifyContent: "space-around",
-                  margin: "0 20px 10px 0px",
+                  
                 }}
               >
                 {/* <div style={{ margin: "0 10px 0 0" }}>

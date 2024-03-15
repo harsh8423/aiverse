@@ -13,14 +13,14 @@ export default function Voyager(){
         <div className='row'>
         <Toaster toastOptions={{ duration: 2000 }} />
                     <div className='col-12 outbox' >
-                        <h2 >
+                        <h2 className='newsletterContent'>
                         <div className='mt-3 mb-3' style={{color:'rgb(156, 156, 156)'}}><h2 className='wait'><span>
                                 <strong>wait wait, that's not all..</strong>
                             </span></h2>
                         </div>
-                            <span ><strong style={{fontFamily: "Maven Pro", fontSize: '0.7em', lineHeight: '1.1em', width: '50vw'}}>If you're a designer figuring out how to go about the buzz-word of the decade "AI"</strong></span>
+                            <span ><strong style={{fontFamily: "Maven Pro"}}>If you're a designer figuring out how to go about the buzz-word of the decade "AI"</strong></span>
                         </h2>
-                        <div className='mt-4'>
+                        <div className='mt-4 newsletter'>
                             <h1 className='waitn'>
                                 <span>
                                     <strong>There's an empty seat </strong>

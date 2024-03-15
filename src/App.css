@@ -4,7 +4,7 @@
 
 .normal-box{
   border-radius: 8px;
-  border: 1px solid lightgrey;
+  border: 1px solid #d3d3d3;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;}
 
 body, input, textarea, select, button {
@@ -46,11 +46,10 @@ background: linear-gradient(180deg, rgba(139,167,32,0) 0%, rgba(255,255,255,1) 1
 
 
 .form__input {
-  font-family: 'Roboto', sans-serif;
-  color: #333;
-  font-size: 1.2rem;
+  color: #646464;
+  font-size: 1rem;
 	/* margin: 0 auto; */
-  padding: 5px 2rem;
+  padding: 0.65rem 1rem;
   /* border-radius: 0.2rem; */
   background-color: rgb(255, 255, 255);
   border: none;

@@ -6,6 +6,7 @@
     align-items: center;
     position: sticky;
     top: 0;
+    margin-left: 0.5%;
     background-color: #ffffff;
     padding: 10px;
     width: 100%;
@@ -40,7 +41,7 @@
 }
 
 .searc{
-    margin: 0px 20px 10px 0px;
+    /* margin: 0px 20px 10px 0px; */
 }
 .searc1{
     width: 400px;
@@ -76,6 +77,20 @@
     .searc1{
         width: 90vw;
     }
+
+    .filterx{
+      justify-content: flex-start !important;
+    }
+
+    .sticky-div{
+      text-align: left;
+    display: flex;
+    /* flex-wrap: wrap; */
+    align-content: flex-start;
+    /* justify-content: space-around; */
+    margin: 0px 0px 10px 0px;
+    }
+
   }
 
   /* Tablet devices (768px to 991px) */

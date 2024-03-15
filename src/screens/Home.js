@@ -147,7 +147,7 @@ export default function Home() {
                       src={sparkleImg}
                       alt="."
                     /> UPDATED WEEKLY!</div>
-            <div>
+            <div style={{ display: "flex", flexDirection: "row", justifyContent: "center"}}>
               <h1 className="lLlibrary">
                 <span>
                   <strong>Largest library of</strong>
