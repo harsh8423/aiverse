@@ -17,7 +17,26 @@
       display: none;
     }
     .head1{
-    display: block;
+      display: block;
+      }
+
+.InteractionHeader{
+  display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.headContainer{
+  display: flex;
+      width: 100%;
+      justify-content: space-between;
+  
+}
+
+.head3{
+    /* position: absolute; */
+    height: fit-content;
 }
 
 .searc{

@@ -5,7 +5,7 @@ import DisplayVideo from "../components.js/DisplayVideo";
 import DisplayMedia from "../components.js/DisplayMedia";
 import { toast, Toaster } from "react-hot-toast";
 import { Helmet } from "react-helmet";
-import cancelIcon from "../images/cancel.png";
+import cancelIcon from "../images/cancel.svg";
 
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";

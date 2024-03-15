@@ -86,13 +86,10 @@
         background-color: #fdca41;
         font-weight: bold;
         width: 50px;
-        color: #a884db;
+        color: rgb(120, 88, 7);
         font-size: 10px;
     }   
-    .curious {
-        font-size: 1.2vmax;
-        color: rgb(171, 171, 171);
-    }   
+    
     /* Mobile devices (up to 767px) */
     @media only screen and (max-width: 767px) {
 

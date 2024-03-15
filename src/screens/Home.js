@@ -10,6 +10,8 @@ import Browse from "./Browse";
 import Voyager from "./Voyager";
 import ContextAdmin from "../components.js/ContestAdmin";
 
+import sparkleImg from "../images/sparkle.svg";
+
 import "../cssFiles.js/section1.css";
 import "../cssFiles.js/marquee.css";
 import "../cssFiles.js/section2.css";
@@ -138,7 +140,13 @@ export default function Home() {
             Are you future ready? Welcome to the AI universe!
           </div>
           <div className="col-12 mt-2 flexpart flexq" style={{position:'relative'}}>
-            <div className=" m-3 uweekly">UPDATED WEEKLY</div>
+            <div className=" m-3 uweekly"> <img
+                      
+                      width={16}
+                      height={"auto"}
+                      src={sparkleImg}
+                      alt="."
+                    /> UPDATED WEEKLY!</div>
             <div>
               <h1 className="lLlibrary">
                 <span>
@@ -180,11 +188,11 @@ export default function Home() {
               <div className="mt-4 outerb" onClick={getminiguidesview}>
                 <div className="AIxDesignerb">Become a AIxDesigner</div>
                 <div className="bonus">
-                  <span>Bonus</span>
+                  <span>BONUS</span>
                 </div>
               </div>
             </div>
-            <div style={{position:'absolute', bottom:'5px'}}>
+            <div style={{position:'absolute', bottom:'0px'}}>
               <div className="mt-5" style={{ color: "rgb(156, 156, 156)" }}>
                 <h2 className="curious">
                   <span>some curious minds following us are from</span>
@@ -195,7 +203,7 @@ export default function Home() {
                   <span className="m-3">
                     <img
                       style={{ filter: "grayscale(100%)" }}
-                      width={90}
+                      width={95}
                       height={"auto"}
                       src="https://framerusercontent.com/images/c5JtGZyQtPE6LJ2fzel0nwnDXr8.png?scale-down-to=2048"
                       alt="."
@@ -204,7 +212,7 @@ export default function Home() {
                   <span className="m-3">
                     <img
                       style={{ filter: "grayscale(100%)" }}
-                      width={90}
+                      width={95}
                       height={"auto"}
                       src="https://framerusercontent.com/images/IV77MhrItS3CPdUHUvJpVoW8Zx0.png?scale-down-to=2048"
                       alt="."
@@ -213,7 +221,7 @@ export default function Home() {
                   <span className="m-3">
                     <img
                       style={{ filter: "grayscale(100%)" }}
-                      width={90}
+                      width={95}
                       height={"auto"}
                       src="https://framerusercontent.com/images/jlxVQ8fBIZaMlGVT68N3sA4jk.png?scale-down-to=1024"
                       alt="."
@@ -222,7 +230,7 @@ export default function Home() {
                   <span className="m-3">
                     <img
                       style={{ filter: "grayscale(100%)" }}
-                      width={90}
+                      width={95}
                       height={"auto"}
                       src="https://framerusercontent.com/images/OajRFQhOaWAsElVarIfrW6qWdjo.png?scale-down-to=512"
                       alt="."
@@ -231,7 +239,7 @@ export default function Home() {
                   <span className="m-3">
                     <img
                       style={{ filter: "grayscale(100%)" }}
-                      width={90}
+                      width={95}
                       height={"auto"}
                       src="https://framerusercontent.com/images/buZs8ZPFXFkLepJ3YBzk4NQAw0.png"
                       alt="."
@@ -240,7 +248,7 @@ export default function Home() {
                   <span className="m-3">
                     <img
                       style={{ filter: "grayscale(100%)" }}
-                      width={90}
+                      width={95}
                       height={"auto"}
                       src="https://framerusercontent.com/images/t8G7CNhQoMsBPqmbs6zyFMyyd54.png?scale-down-to=1024"
                       alt="."
@@ -251,7 +259,7 @@ export default function Home() {
                   <span className="m-3">
                     <img
                       style={{ filter: "grayscale(100%)" }}
-                      width={90}
+                      width={95}
                       height={"auto"}
                       src="https://framerusercontent.com/images/c5JtGZyQtPE6LJ2fzel0nwnDXr8.png?scale-down-to=2048"
                       alt="."
@@ -260,7 +268,7 @@ export default function Home() {
                   <span className="m-3">
                     <img
                       style={{ filter: "grayscale(100%)" }}
-                      width={90}
+                      width={95}
                       height={"auto"}
                       src="https://framerusercontent.com/images/IV77MhrItS3CPdUHUvJpVoW8Zx0.png?scale-down-to=2048"
                       alt="."
@@ -269,7 +277,7 @@ export default function Home() {
                   <span className="m-3">
                     <img
                       style={{ filter: "grayscale(100%)" }}
-                      width={90}
+                      width={95}
                       height={"auto"}
                       src="https://framerusercontent.com/images/jlxVQ8fBIZaMlGVT68N3sA4jk.png?scale-down-to=1024"
                       alt="."
@@ -278,7 +286,7 @@ export default function Home() {
                   <span className="m-3">
                     <img
                       style={{ filter: "grayscale(100%)" }}
-                      width={90}
+                      width={95}
                       height={"auto"}
                       src="https://framerusercontent.com/images/OajRFQhOaWAsElVarIfrW6qWdjo.png?scale-down-to=512"
                       alt="."
@@ -287,7 +295,7 @@ export default function Home() {
                   <span className="m-3">
                     <img
                       style={{ filter: "grayscale(100%)" }}
-                      width={90}
+                      width={95}
                       height={"auto"}
                       src="https://framerusercontent.com/images/buZs8ZPFXFkLepJ3YBzk4NQAw0.png"
                       alt="."
@@ -296,7 +304,7 @@ export default function Home() {
                   <span className="m-3">
                     <img
                       style={{ filter: "grayscale(100%)" }}
-                      width={90}
+                      width={95}
                       height={"auto"}
                       src="https://framerusercontent.com/images/t8G7CNhQoMsBPqmbs6zyFMyyd54.png?scale-down-to=1024"
                       alt="."

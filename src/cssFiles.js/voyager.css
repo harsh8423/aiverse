@@ -6,12 +6,16 @@
     font-size: 36px;
 }
 .wait {
-    font-size: 30px;
+    font-size: 20px;
+    font-family: 'Maven Pro';
     color: rgb(171, 171, 171);
 }
 .waitn {
     font-weight: 700;
     font-size: 3.6vmax;
+    font-family: 'Maven Pro';
+    letter-spacing: -0.02;
+        line-height: 1.1em;
 }
 
 .flexp {

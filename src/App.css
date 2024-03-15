@@ -9,7 +9,7 @@
 
 body, input, textarea, select, button {
   font-size: 16px;
-  font-family: sans-serif;
+  font-family: "Average Sans", sans-serif;
 } 
 body{
   margin: 0;

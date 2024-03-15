@@ -1,12 +1,16 @@
 
 /* @media only screen and (min-width: 1168px) and (max-width: 1699px) { */
+    .row{
+        height: 100%;
+    }
+    
     .topheading{
         font-weight: bold;
         color: #A884DB;
-        font-size: 20px;
+        font-size: 18px;
     }
     .flexq{
-        height: 80vh;
+        height: 76vh;
 
     }
     .flexpart{
@@ -22,21 +26,26 @@
     .uweekly {
         border: 1px solid #fdca41;
         border-radius: 30px;
-        padding: 6px 20px;
+        padding: 6px 16px;
         background-color: #fccb4230;
         color: rgb(153, 120, 37);
         font-weight: 700;
-        font-size: 12px;
+        font-size: 11px;
         font-family: sans-serif;
+        
     }
     .lLlibrary{
         font-weight: 700;
-        font-size: 4.3vmax;
+        font-size: 4vmax;
+        font-family: 'Maven Pro', sans-serif;
+        letter-spacing: -0.02;
+        line-height: 1.1em;
     }
     
     .part2 {
         font-weight: 400;
-        font-size: 2.1vmax;
+        font-size: 1.8vmax;
+        line-height: 1.4em;
         color: rgb(171, 171, 171);
     }
     
@@ -56,7 +65,15 @@
         font-size: 18px;
         text-decoration: none;
         cursor: pointer;
+        transition: 0.3s ease-in-out;
     }
+
+    .browseb:hover{
+        transform: scale(1.02);
+        box-shadow: 0 1px 30px -6px #a884db;
+
+    }
+
     .outerb {
         border-radius: 12px;
         box-shadow: 0 1px 20px -6px #f6f0ff;
@@ -66,7 +83,17 @@
         position: relative;
         margin-left: 10px;
         cursor: pointer;
+        transition: 0.3s ease-in-out;
+
     }
+
+    .outerb:hover{
+        /* transform: scale(1.02); */
+        /* box-shadow: 0 1px 30px -6px #d0c3e2; */
+
+    }
+
+
     .AIxDesignerb {
         color: #a884db;
         font-weight: 300;
@@ -82,11 +109,11 @@
         font-weight: bold;
         width: 50px;
         position: absolute;
-        color: #a884db;
+        color: rgb(120, 88, 7);
         font-size: 10px;
     }
     .curious {
-        font-size: 20px;
+        font-size: 16px;
         color: rgb(171, 171, 171);
     }
     

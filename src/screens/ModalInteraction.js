@@ -65,7 +65,7 @@ export default function Interactions(props) {
   return (
     <div className='container-fluid' style={{textAlign:'left'}}>
       <div className='row p-4'>
-        <div className='col-12 p-3 text-center' style={{backgroundColor:'#faf6ff', border:'1px solid lightgrey',borderRadius:'12px'}}>
+        <div className='col-12 p-3 text-center' style={{backgroundColor:'#faf6ff', borderBottom:'1px solid lightgrey',borderRadius:'0px'}}>
           <div style={{fontWeight:545}}>{video.pattern} AI-UX Interaction &nbsp;<span style={{color:'grey'}}>from&nbsp;</span> <span style={{fontWeight:700, fontSize:'18px'}}>{video.appName}</span><span style={{color:'grey', fontSize:'14px', float:'right'}}>Captured on {uploadDate}</span>
           <hr/></div>
           <div>

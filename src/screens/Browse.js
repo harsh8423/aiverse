@@ -7,7 +7,7 @@ import Searchbox from "../components.js/Searchbox";
 import filtericon from "../images/filter.png";
 import Modal from "react-modal";
 import trash from "../images/trash.png";
-import cancelIcon from "../images/cancel.png";
+import cancelIcon from "../images/cancel.svg";
 import { Bars } from "react-loader-spinner";
 import { Helmet } from 'react-helmet';
 
@@ -223,10 +223,10 @@ export default function Browse(props) {
       bottom: "auto",
       marginRight: "-50%",
       transform: "translate(-50%, -50%)",
-      width: "95%",
-      height: "95%",
+      width: "97%",
+      height: "94%",
       overflow: "auto",
-      borderRadius: "20px",
+      borderRadius: "12px",
       zIndex: 30,
     },
   };
@@ -424,9 +424,78 @@ export default function Browse(props) {
                   margin: "0 20px 10px 0px",
                 }}
               >
-                <div style={{ margin: "0 10px 0 0" }}>
+                {/* <div style={{ margin: "0 10px 0 0" }}>
                   <img src={filtericon} width={24} height={28} />
-                </div>
+                </div> */}
+                {pattern && (
+                  <div className="dropdown ddd" style={{ margin: "0 10px 0 0" }}>
+                    <button
+                      style={{
+                        minWidth: "100px",
+                        border: "1px solid lightgrey",
+                        backgroundColor: "white",
+                      }}
+                      className="btn btn dropdown-toggle"
+                      type="button"
+                      id="dropdownMenuButton"
+                      data-toggle="dropdown"
+                      aria-haspopup="true"
+                      aria-expanded="false"
+                    >
+                      AI-UX Pattern
+                      <small> {selectedpattern[0]}</small>
+                      {selectedpattern?.length > 1 && (
+                        <small style={{ fontWeight: 700, color: "grey" }}>
+                          {" +"}
+                          {selectedpattern?.length - 1}
+                          {" more"}
+                        </small>
+                      )}
+                    </button>
+                    <div
+                      class="dropdown-menu"
+                      aria-labelledby="dropdownMenuButton"
+                      style={{cursor: "pointer", maxHeight: "200px", overflow: "auto" }}
+                    >
+                      <span
+                        style={{ cursor: "pointer", minWidth: "100px" }}
+                        className="dropdown-item"
+                        onClick={() => {
+                          setselectedpattern("");
+                        }}
+                      >
+                        clear select
+                      </span>
+                      {pattern.map((item) => {
+                        return (
+                          <div
+                            className="hhh"
+                            style={{
+                              display: "block",
+                              fontSize:'14px',
+                              marginLeft:'5px',
+                              cursor:"pointer"
+                            }}
+                          >
+                            <input
+                              className="m-1"
+                              checked={selectedpattern.includes(item)}
+                              onChange={(event) => handlepattern(event, item)}
+                              type="checkbox"
+                              id={item}
+                              name={item}
+                              style={{ cursor: "pointer" }}
+                              value={item}
+                            />
+
+                            <label style={{ cursor: "pointer" }} htmlFor={item}>{item}</label>
+                            <br />
+                          </div>
+                        );
+                      })}
+                    </div>
+                  </div>
+                )}
                 {appName && (
                   <div
                     className="dropdown ddd"
@@ -445,7 +514,7 @@ export default function Browse(props) {
                       aria-haspopup="true"
                       aria-expanded="false"
                     >
-                      <strong>AppName </strong>
+                      Company
                       <small> {selectedappName[0]}</small>
                       {selectedappName?.length > 1 && (
                         <small style={{ fontWeight: 700, color: "grey" }}>
@@ -503,75 +572,7 @@ export default function Browse(props) {
                     </div>
                   </div>
                 )}
-                {pattern && (
-                  <div className="dropdown ddd" style={{ margin: "0 10px 0 0" }}>
-                    <button
-                      style={{
-                        minWidth: "100px",
-                        border: "1px solid lightgrey",
-                        backgroundColor: "white",
-                      }}
-                      className="btn btn dropdown-toggle"
-                      type="button"
-                      id="dropdownMenuButton"
-                      data-toggle="dropdown"
-                      aria-haspopup="true"
-                      aria-expanded="false"
-                    >
-                      <strong>Pattern </strong>
-                      <small> {selectedpattern[0]}</small>
-                      {selectedpattern?.length > 1 && (
-                        <small style={{ fontWeight: 700, color: "grey" }}>
-                          {" +"}
-                          {selectedpattern?.length - 1}
-                          {" more"}
-                        </small>
-                      )}
-                    </button>
-                    <div
-                      class="dropdown-menu"
-                      aria-labelledby="dropdownMenuButton"
-                      style={{cursor: "pointer", maxHeight: "200px", overflow: "auto" }}
-                    >
-                      <span
-                        style={{ cursor: "pointer", minWidth: "100px" }}
-                        className="dropdown-item"
-                        onClick={() => {
-                          setselectedpattern("");
-                        }}
-                      >
-                        clear select
-                      </span>
-                      {pattern.map((item) => {
-                        return (
-                          <div
-                            className="hhh"
-                            style={{
-                              display: "block",
-                              fontSize:'14px',
-                              marginLeft:'5px',
-                              cursor:"pointer"
-                            }}
-                          >
-                            <input
-                              className="m-1"
-                              checked={selectedpattern.includes(item)}
-                              onChange={(event) => handlepattern(event, item)}
-                              type="checkbox"
-                              id={item}
-                              name={item}
-                              style={{ cursor: "pointer" }}
-                              value={item}
-                            />
-
-                            <label style={{ cursor: "pointer" }} htmlFor={item}>{item}</label>
-                            <br />
-                          </div>
-                        );
-                      })}
-                    </div>
-                  </div>
-                )}
+                
                 {industry && (
                   <div className="dropdown ddd" style={{ margin: "0 10px 0 0", }}>
                     <button
@@ -587,7 +588,7 @@ export default function Browse(props) {
                       aria-haspopup="true"
                       aria-expanded="false"
                     >
-                      <strong>Industry </strong>
+                      Domain
                       <small> {selectedindustry[0]}</small>
                       {selectedindustry?.length > 1 && (
                         <small style={{ fontWeight: 700, color: "grey" }}>
@@ -715,44 +716,43 @@ export default function Browse(props) {
                   paddingLeft:'0px',
                   paddingRight:'0px',
                   backgroundColor: "#faf6ff",
-                  border: "1px solid lightgrey",
-                  borderRadius: "12px",
+                  borderBottom: "1px solid lightgrey",
+                  borderRadius: "0px",
                 }}
               >
-                <div>
+                
+                <div className="headContainer" style={{ fontWeight: 545, }}>
+                
                   <img
                     className="scale "
-                    style={{ float: "left", cursor: "pointer", marginLeft:'5px' }}
+                    style={{ float: "left", cursor: "pointer", marginLeft:'12px' }}
                     onClick={closeModal}
                     src={cancelIcon}
                     width={24}
                     height={24}
                   />
-                </div>
-                <div className="head1" style={{ fontWeight: 545, }}>
+                
+                <div className="InteractionHeader">
                   <span >
                     {video.pattern} AI-UX Interaction &nbsp;
                     <span style={{ color: "grey" }}>from&nbsp;</span>{" "}
                   </span>
 
-                  <span><img src={`${cdnURL}${video.iconUrl}`} style={{borderRadius:'8px',marginRight:'7px'}} width={25} height={25}/>
+                  <div style={{display: "flex", alignItems: 'center'}}><img src={`${cdnURL}${video.iconUrl}`} style={{borderRadius:'8px',marginRight:'7px'}} width={25} height={25}/>
                   <span style={{ fontWeight: 700, fontSize: "18px" }}>
                     {video.appName}
                   </span>
-                  </span>
-                  {newstatus? <small className="head3" style={{marginLeft:'5px',borderRadius:'20px', padding:'4px 6px', backgroundColor:'#7FBC7B', color:'white',fontWeight:'bold', fontSize:'8px', position:'absolute', top:'2%'}}>NEW</small>:video.status=="updated"? <small style={{marginLeft:'5px',borderRadius:'20px', padding:'4px 6px', backgroundColor:'#7FBC7B', color:'white',fontWeight:'bold', fontSize:'8px', position:'absolute', top:'2%'}}>UPDATED</small>:''}
-
+                  </div>
+                  {newstatus? <small className="head3" style={{marginLeft:'5px',borderRadius:'20px', padding:'4px 6px', backgroundColor:'#7FBC7B', color:'white',fontWeight:'bold', fontSize:'8px', top:'2%'}}>NEW</small>:video.status=="updated"? <small style={{marginLeft:'5px',borderRadius:'20px', padding:'4px 6px', backgroundColor:'#7FBC7B', color:'white',fontWeight:'bold', fontSize:'8px', top:'2%'}}>UPDATED</small>:''}
+                  </div>
                   <span
-                    style={{ color: "grey", fontSize: "14px", float: "right", marginRight:'10px' }}
+                    style={{ color: "grey", fontSize: "14px", float: "right", marginRight:'12px' }}
                   >
                     Captured on {uploadDate}
                   </span>
-                  <hr />
+                  
                 </div>
-
-
-
-
+                <hr />
 
 
                 <div className="head2" style={{ fontWeight: 545, textAlign:'left', margin:'0px 40px' }}>
@@ -810,6 +810,7 @@ export default function Browse(props) {
                     );
                   })}
                 </Swiper>
+                <hr />
                 <div 
                   className="p-2 g-0 head1"
                   style={{ fontWeight: 545, textAlign: "left" }}

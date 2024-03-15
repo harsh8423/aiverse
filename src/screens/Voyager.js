@@ -18,7 +18,7 @@ export default function Voyager(){
                                 <strong>wait wait, that's not all..</strong>
                             </span></h2>
                         </div>
-                            <span ><strong>If you're a designer figuring out how to go about the buzz-word of the decade "AI"</strong></span>
+                            <span ><strong style={{fontFamily: "Maven Pro", fontSize: '0.7em', lineHeight: '1.1em', width: '50vw'}}>If you're a designer figuring out how to go about the buzz-word of the decade "AI"</strong></span>
                         </h2>
                         <div className='mt-4'>
                             <h1 className='waitn'>
